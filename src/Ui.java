@@ -154,7 +154,6 @@ public class Ui {
 
     private JLabel createJLabel(String labelName, JPanel jPanel, int width, int height, int x, int y) {
         JLabel jLabel = new JLabel(labelName);
-        ;
         jPanel.add(jLabel);
         jLabel.setSize(width, height);
         jLabel.setLocation(x, y);
