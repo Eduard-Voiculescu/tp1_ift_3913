@@ -6,7 +6,12 @@ public class Main {
 
     public static void main(String[] args) throws IOException{
 
-        Ui ui = new Ui();
+        try {
+            Ui ui = new Ui();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
 
     }
 

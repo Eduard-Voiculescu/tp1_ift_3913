@@ -5,6 +5,7 @@ import java.awt.*;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.filechooser.*;
+import model.*;
 
 public class Ui {
 
@@ -22,24 +23,37 @@ public class Ui {
     private JList<String> listAssociations_Agregations;
     private JList<String> listDetails;
 
+    /* DefaultListModel */
+    private DefaultListModel<String> classes;
+    private DefaultListModel<String> attributs;
+    private DefaultListModel<String> methods;
+    private DefaultListModel<String> subClasses;
+    private DefaultListModel<String> associations_Agregations;
+    private DefaultListModel<String> details;
+
+    /* Parser */
+    private Parser parser;
+
+    /**
+     * Ui constructor
+     * */
     public Ui (){
 
-        String week[]= { "Monday","Tuesday","Wednesday",
-                "Thursday","Friday","Saturday","Sunday"};
+        /*Initialiser tout les DefaultListModel */
+        this.classes = new DefaultListModel<>();
+        this.attributs = new DefaultListModel<>();
+        this.methods = new DefaultListModel<>();
+        this.subClasses = new DefaultListModel<>();
+        this.associations_Agregations = new DefaultListModel<>();
+        this.details = new DefaultListModel<>();
 
-        this.listClasses = new JList<String>(week);
-        this.listAttributs = new JList<String>(week);
-        this.listMethods = new JList<String>(week);
-        this.listSubClasses = new JList<String>(week);
-        this.listAssociations_Agregations = new JList<String>(week);
-        this.listDetails = new JList<String>(week);
-
-        setJListSize(this.listClasses, 20, 20, 100);
-        setJListSize(this.listAttributs, 5, 20, 200);
-        setJListSize(this.listMethods, 5, 20, 200);
-        setJListSize(this.listSubClasses, 5, 20, 200);
-        setJListSize(this.listAssociations_Agregations, 5, 20, 200);
-        setJListSize(this.listDetails, 5, 20, 400);
+        /* Initialiser tout les JList */
+        this.listClasses = new JList<String>(this.classes);
+        this.listAttributs = new JList<String>(this.attributs);
+        this.listMethods = new JList<String>(this.methods);
+        this.listSubClasses = new JList<String>(this.subClasses);
+        this.listAssociations_Agregations = new JList<String>(this. associations_Agregations);
+        this.listDetails = new JList<String>(this.details);
 
         /* La selection des nodes dans les listes. Pas toutes les listes on peut selectionner. setEnabled = false
         * so there is no user input possible. */
@@ -47,6 +61,23 @@ public class Ui {
         this.listMethods.setEnabled(false);
         this.listSubClasses.setEnabled(false);
         this.listDetails.setEnabled(false);
+
+        /* Launch Ui Initialization */
+        initializeUi();
+
+    }
+
+    /**
+     * Method to initialize all the Ui components
+     * */
+    private void initializeUi() {
+
+        setJListSize(this.listClasses, 20, 20, 100);
+        setJListSize(this.listAttributs, 5, 20, 200);
+        setJListSize(this.listMethods, 5, 20, 200);
+        setJListSize(this.listSubClasses, 5, 20, 200);
+        setJListSize(this.listAssociations_Agregations, 5, 20, 200);
+        setJListSize(this.listDetails, 5, 20, 400);
 
         /* Frame Initialization */
         JFrame jFrame = new JFrame("UML Parser");
@@ -138,8 +169,14 @@ public class Ui {
 
             int result = jFileChooser.showOpenDialog(null);
             if (result == JFileChooser.APPROVE_OPTION) {
-                jTextFieldPath.setText(this.jFileChooser.getSelectedFile().getAbsolutePath());
+                String filePath = this.jFileChooser.getSelectedFile().getAbsolutePath();
+                jTextFieldPath.setText(filePath);
+
                 // TODO: Add parser here ...
+
+                this.parser = new Parser(filePath);
+
+                printClasses();
             }
         });
 
@@ -155,41 +192,22 @@ public class Ui {
 
     }
 
-    private JLabel createJLabel(String labelName, JPanel jPanel, int width, int height, int x, int y) {
-        JLabel jLabel = new JLabel(labelName);
-        jPanel.add(jLabel);
-        jLabel.setSize(width, height);
-        jLabel.setLocation(x, y);
-        return jLabel;
+    /**
+     * Method to print all classes in a .ucd file
+     * */
+    private void printClasses() {
+        for (String key : this.parser.getClassDictionnary().keySet()) {
+            this.classes.addElement(key);
+        }
     }
 
-    private JTextArea createTextArea(JPanel jPanel, int width, int height, int x, int y) {
-        JTextArea jTextArea = new JTextArea("");
-        jTextArea.setBounds(x, y, width, height);
-        jTextArea.setEditable(false);
-        jPanel.add(jTextArea);
-        return jTextArea;
-    }
-
-    private JScrollPane createScrollPane(JPanel jPanel, JTextArea jTextArea, int width, int height, int x, int y) {
-        JScrollPane jScrollPane = new JScrollPane(jTextArea);
-        jScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        jScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-        jScrollPane.setSize(width, height);
-        jScrollPane.setLocation(x, y);
-        jPanel.add(jScrollPane);
-        jScrollPane.setVisible(true);
-        return jScrollPane;
-    }
-
+    /**
+     * Method to set JListSize for all area in the Ui interface
+     * */
     private void setJListSize(JList jList, int rowCount, int cellHeight, int cellWidth) {
         jList.setVisibleRowCount(rowCount);
         jList.setFixedCellHeight(cellHeight);
         jList.setFixedCellWidth(cellWidth);
-    }
-
-    public static void main(String[] args) {
-        Ui ui = new Ui();
     }
 
 }
