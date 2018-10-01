@@ -1,12 +1,10 @@
-
+package view;
 /* Imports */
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.filechooser.*;
-import java.io.File;
 
 public class Ui {
 
@@ -24,34 +22,31 @@ public class Ui {
     private JList<String> listAssociations_Agregations;
     private JList<String> listDetails;
 
-    /* JTextArea */
-    private JTextArea jTextDetails;
-
     public Ui (){
 
         String week[]= { "Monday","Tuesday","Wednesday",
                 "Thursday","Friday","Saturday","Sunday"};
 
-        listClasses = new JList<String>(week);
-        listAttributs = new JList<String>(week);
-        listMethods = new JList<String>(week);
-        listSubClasses = new JList<String>(week);
-        listAssociations_Agregations = new JList<String>(week);
-        listDetails = new JList<String>(week);
+        this.listClasses = new JList<String>(week);
+        this.listAttributs = new JList<String>(week);
+        this.listMethods = new JList<String>(week);
+        this.listSubClasses = new JList<String>(week);
+        this.listAssociations_Agregations = new JList<String>(week);
+        this.listDetails = new JList<String>(week);
 
-        setJListSize(listClasses, 20, 20, 100);
-        setJListSize(listAttributs, 5, 20, 200);
-        setJListSize(listMethods, 5, 20, 200);
-        setJListSize(listSubClasses, 5, 20, 200);
-        setJListSize(listAssociations_Agregations, 5, 20, 200);
-        setJListSize(listDetails, 5, 20, 400);
+        setJListSize(this.listClasses, 20, 20, 100);
+        setJListSize(this.listAttributs, 5, 20, 200);
+        setJListSize(this.listMethods, 5, 20, 200);
+        setJListSize(this.listSubClasses, 5, 20, 200);
+        setJListSize(this.listAssociations_Agregations, 5, 20, 200);
+        setJListSize(this.listDetails, 5, 20, 400);
 
         /* La selection des nodes dans les listes. Pas toutes les listes on peut selectionner. setEnabled = false
         * so there is no user input possible. */
-        listAttributs.setEnabled(false);
-        listMethods.setEnabled(false);
-        listSubClasses.setEnabled(false);
-        listDetails.setEnabled(false);
+        this.listAttributs.setEnabled(false);
+        this.listMethods.setEnabled(false);
+        this.listSubClasses.setEnabled(false);
+        this.listDetails.setEnabled(false);
 
         /* Frame Initialization */
         JFrame jFrame = new JFrame("UML Parser");
@@ -67,7 +62,7 @@ public class Ui {
 
         /* JPanelClass */
         JPanel jPanelClass = new JPanel();
-        JScrollPane jScrollPaneClass = new JScrollPane(listClasses);
+        JScrollPane jScrollPaneClass = new JScrollPane(this.listClasses);
         jPanelClass.add(jScrollPaneClass);
         jPanelClass.setBorder(new TitledBorder(BorderFactory.createTitledBorder(
                 BorderFactory.createEtchedBorder(EtchedBorder.LOWERED)),"Classes"));
@@ -83,7 +78,7 @@ public class Ui {
 
         /* JPanelAttributs */
         JPanel jPanelAttributs = new JPanel();
-        JScrollPane jScrollPaneAttributs = new JScrollPane(listAttributs);
+        JScrollPane jScrollPaneAttributs = new JScrollPane(this.listAttributs);
         jPanelAttributs.add(jScrollPaneAttributs);
         jPanelAttributs.setBorder(new TitledBorder(BorderFactory.createTitledBorder(
                 BorderFactory.createEtchedBorder(EtchedBorder.LOWERED)),"Attributs"));
@@ -91,7 +86,7 @@ public class Ui {
 
         /* JPanelMethods */
         JPanel jPanelMethods = new JPanel();
-        JScrollPane jScrollPaneMethods = new JScrollPane(listMethods);
+        JScrollPane jScrollPaneMethods = new JScrollPane(this.listMethods);
         jPanelMethods.add(jScrollPaneMethods);
         jPanelMethods.setBorder(new TitledBorder(BorderFactory.createTitledBorder(
                 BorderFactory.createEtchedBorder(EtchedBorder.LOWERED)),"Methods"));
@@ -99,7 +94,7 @@ public class Ui {
 
         /* JPanelSubClass */
         JPanel jPanelSubClass = new JPanel();
-        JScrollPane jScrollPaneSubClass = new JScrollPane(listSubClasses);
+        JScrollPane jScrollPaneSubClass = new JScrollPane(this.listSubClasses);
         jPanelSubClass.add(jScrollPaneSubClass);
         jPanelSubClass.setBorder(new TitledBorder(BorderFactory.createTitledBorder(
                 BorderFactory.createEtchedBorder(EtchedBorder.LOWERED)),"Sous-Classes"));
@@ -107,7 +102,7 @@ public class Ui {
 
         /* JPanelAssociationsAndAggregations */
         JPanel jPanelAssociationsAndAggregations = new JPanel();
-        JScrollPane jScrollPaneAssociationsAndAggregations = new JScrollPane(listAssociations_Agregations);
+        JScrollPane jScrollPaneAssociationsAndAggregations = new JScrollPane(this.listAssociations_Agregations);
         jPanelAssociationsAndAggregations.add(jScrollPaneAssociationsAndAggregations);
         jPanelAssociationsAndAggregations.setBorder(new TitledBorder(BorderFactory.createTitledBorder(
                 BorderFactory.createEtchedBorder(EtchedBorder.LOWERED)),"Associations et Aggregations"));
@@ -115,7 +110,7 @@ public class Ui {
 
         /* JPanelDetails */
         JPanel jPanelDetails = new JPanel();
-        JScrollPane jScrollPaneDetails = new JScrollPane(listDetails);
+        JScrollPane jScrollPaneDetails = new JScrollPane(this.listDetails);
         jPanelDetails.add(jScrollPaneDetails);
         jPanelDetails.setBorder(new TitledBorder(BorderFactory.createTitledBorder(
                 BorderFactory.createEtchedBorder(EtchedBorder.LOWERED)),"Détails"));
@@ -128,18 +123,26 @@ public class Ui {
 
         /* JTextField Initialization - for the FilePath to choose*/
         JTextField jTextFieldPath = new JTextField(10);
-        jTextFieldPath.setText("Ligue.ucd");
+        jTextFieldPath.setText("");
 
         /* JButton Load */
         JButton jButtonLoad = new JButton("Load File");
         jButtonLoad.addActionListener(e -> {
-            jFileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+            this.jFileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+            this.jFileChooser.setDialogTitle("Choose UML diagram");
+            this.jFileChooser.setAcceptAllFileFilterUsed(false);
+
+            /* On accepte seulement les fichiers avec l'extension .ucd */
+            FileNameExtensionFilter filter = new FileNameExtensionFilter("UML Diagram", "ucd");
+            this.jFileChooser.addChoosableFileFilter(filter);
+
             int result = jFileChooser.showOpenDialog(null);
             if (result == JFileChooser.APPROVE_OPTION) {
-                jTextFieldPath.setText(jFileChooser.getSelectedFile().toString());
+                jTextFieldPath.setText(this.jFileChooser.getSelectedFile().getAbsolutePath());
                 // TODO: Add parser here ...
             }
         });
+
         jPanelChooseFile.add(jButtonLoad, BorderLayout.WEST);
         jPanelChooseFile.add(jTextFieldPath, BorderLayout.CENTER);
         jPanel.add(jPanelChooseFile, BorderLayout.NORTH);
