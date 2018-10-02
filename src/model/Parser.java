@@ -27,23 +27,8 @@ public class Parser {
         this.filePath = filePath;
         this.fileContent = new ArrayList<String>();
 
-        Classe monday = new Classe("monday");
-        Classe tuesday = new Classe("tuesday");
-        Classe wednesday = new Classe("wednesday");
-        Classe thursday = new Classe("thursday");
-        Classe friday = new Classe("friday");
-        Classe saturday = new Classe("saturday");
-        Classe sunday = new Classe("sunday");
-        classDictionnary.put(monday .getClassName(), monday);
-        classDictionnary.put(tuesday .getClassName(), tuesday);
-        classDictionnary.put(wednesday .getClassName(), wednesday);
-        classDictionnary.put(thursday .getClassName(), thursday);
-        classDictionnary.put(friday .getClassName(), friday);
-        classDictionnary.put(saturday .getClassName(), saturday);
-        classDictionnary.put(sunday .getClassName(), sunday);
-
         readFile(this.filePath);
-        translateFile(this.fileContent);
+        parseFile(this.fileContent);
 
     }
 
@@ -72,7 +57,16 @@ public class Parser {
                     return;
                 }
 
-                this.fileContent.add(line);
+                /* Add all the words one by one, while ignoring () and , */
+                line = line.replace(":", " : "); // We keep :
+                line = line.replace(";", " ; "); // We keep ;
+                String[] words = line.split("\\s+|,|\\(|\\)"); // Ignore |space , ( )|
+
+                for (String word : words) {
+                    if (word.length() > 0) { // We do not add spaces to file content
+                        this.fileContent.add(word); // Add each word
+                    }
+                }
                 i++;
             }
 
@@ -97,12 +91,12 @@ public class Parser {
      * RELATION
      * AGGREGATION
      * */
-    private void translateFile(ArrayList<String> content) {
+    private void parseFile(ArrayList<String> content) {
         for (int i = 0; i < content.size(); i++){
             if (content.get(i).equals("CLASS")){
-                parseClass();
+                i = parseClass(i, content);
             } else if (content.get(i).equals("GENERALIZATION")) {
-                parseGeneralization();
+                i = parseGeneralization(i, content);
             } else if (content.get(i).equals("RELATION")) {
                 parseRelation();
             } else if (content.get(i).equals("AGGREGATION")) {
@@ -113,17 +107,63 @@ public class Parser {
 
     /**
      * Method with 2 ArrayList (ATTRIBUTS and OPERATIONS)
+     * This method will fill in attributs and
+     * @param i int : position where CLASS starts in ArrayList of FileContent
+     * @return i int : position where CLASS ends
      * */
-    private void parseClass(){
-        ArrayList<String> attributs = new ArrayList<String>();
-        ArrayList<String> operations = new ArrayList<String>();
+    private int parseClass(int i, ArrayList<String> content){
+        ArrayList<Attribut> attributs = new ArrayList<Attribut>();
+        ArrayList<Method> operations = new ArrayList<Method>();
+        Classe classe = new Classe("", new ArrayList<Attribut>(), new ArrayList<Method>());
+
+        i++;
+        classe.setClassName(content.get(i));
+        i++;
+
+        while (!content.get(i).equals(";")){
+
+            if(content.get(i).equals("CLASS")){
+                break;
+            } else if (content.get(i).equals("ATTRIBUTES")){
+
+                i++;
+                while (!content.get(i).equals("OPERATIONS")){
+                    Attribut attribut = new Attribut(content.get(i), content.get(i+2));
+                    attributs.add(attribut);
+                    i+=3;
+                }
+
+            } else if (content.get(i).equals("OPERATIONS")){
+
+                i++;
+                while (!content.get(i).equals(";")){
+                    Method method = new Method("", "", new ArrayList<>());
+                    method.setMethodName(content.get(i));
+                    while (!content.get(i+1).equals(":")){ // we have a method with arguments
+                        Attribut attribut = new Attribut(content.get(i+1), content.get(i+3));
+                        method.addArgument(attribut);
+                        i+=3;
+                    }
+                    // The method does not have any arguments
+                    method.setMethodType(content.get(i+2));
+                    operations.add(method);
+                    i+=3;
+                }
+            }
+        }
+        classe.setAttributs(attributs);
+        classe.setMethods(operations);
+        this.classDictionnary.put(classe.getClassName(), classe);
+        return i;
     }
 
     /**
      * Method with 1 ArrayList (SUBCLASSES)
      * */
-    private void parseGeneralization(){
+    private int parseGeneralization(int i, ArrayList<String> content){
         ArrayList<String> subClasses = new ArrayList<String>();
+
+        return i;
     }
 
     /**
