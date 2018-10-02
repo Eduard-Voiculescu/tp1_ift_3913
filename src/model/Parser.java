@@ -96,7 +96,8 @@ public class Parser {
             if (content.get(i).equals("CLASS")){
                 i = parseClass(i, content);
             } else if (content.get(i).equals("GENERALIZATION")) {
-                i = parseGeneralization(i, content);
+                break;
+//                i = parseGeneralization(i, content);
             } else if (content.get(i).equals("RELATION")) {
                 parseRelation();
             } else if (content.get(i).equals("AGGREGATION")) {

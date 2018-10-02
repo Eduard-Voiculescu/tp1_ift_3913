@@ -2,6 +2,8 @@ package view;
 /* Imports */
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.filechooser.*;
@@ -73,10 +75,10 @@ public class Ui {
     private void initializeUi() {
 
         setJListSize(this.listClasses, 20, 20, 100);
-        setJListSize(this.listAttributs, 5, 20, 200);
-        setJListSize(this.listMethods, 5, 20, 200);
-        setJListSize(this.listSubClasses, 5, 20, 200);
-        setJListSize(this.listAssociations_Agregations, 5, 20, 200);
+        setJListSize(this.listAttributs, 7, 20, 300);
+        setJListSize(this.listMethods, 7, 20, 300);
+        setJListSize(this.listSubClasses, 7, 20, 300);
+        setJListSize(this.listAssociations_Agregations, 7, 20, 300);
         setJListSize(this.listDetails, 5, 20, 400);
 
         /* Frame Initialization */
@@ -98,6 +100,13 @@ public class Ui {
         jPanelClass.setBorder(new TitledBorder(BorderFactory.createTitledBorder(
                 BorderFactory.createEtchedBorder(EtchedBorder.LOWERED)),"Classes"));
         jPanel.add(jPanelClass, BorderLayout.WEST);
+        listClasses.addMouseListener(new MouseAdapter() { // Add MouseClicked Event
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                String selectedClass = listClasses.getSelectedValue();
+                printClassesInformation(selectedClass);
+            }
+        });
 
         /* This is the parent of GridLayout and Details */
         JPanel jPanelGridParent = new JPanel();
@@ -118,6 +127,8 @@ public class Ui {
         /* JPanelMethods */
         JPanel jPanelMethods = new JPanel();
         JScrollPane jScrollPaneMethods = new JScrollPane(this.listMethods);
+        jScrollPaneMethods.setHorizontalScrollBarPolicy(
+                JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
         jPanelMethods.add(jScrollPaneMethods);
         jPanelMethods.setBorder(new TitledBorder(BorderFactory.createTitledBorder(
                 BorderFactory.createEtchedBorder(EtchedBorder.LOWERED)),"Methods"));
@@ -199,6 +210,28 @@ public class Ui {
         for (String key : this.parser.getClassDictionnary().keySet()) {
             this.classes.addElement(key);
         }
+    }
+
+    /**
+     * Method to print all class information in a .ucd file
+     * */
+    private void printClassesInformation(String selectedClass){
+
+        /* Remove all elements so on next clicked class, respective information to that class will appear. */
+        this.attributs.removeAllElements();
+        this.methods.removeAllElements();
+        this.subClasses.removeAllElements();
+        this.associations_Agregations.removeAllElements();
+        this.details.removeAllElements();
+
+        for(int i = 0; i < this.parser.getClassDictionnary().get(selectedClass).getAttributs().size(); i++){
+            this.attributs.addElement(this.parser.getClassDictionnary().get(selectedClass).getAttributs().get(i).toString());
+        }
+
+        for(int i = 0; i < this.parser.getClassDictionnary().get(selectedClass).getMethods().size(); i++){
+            this.methods.addElement(this.parser.getClassDictionnary().get(selectedClass).getMethods().get(i).toString());
+        }
+
     }
 
     /**
