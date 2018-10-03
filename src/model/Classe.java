@@ -1,5 +1,6 @@
 package model;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Classe {
@@ -13,6 +14,8 @@ public class Classe {
     private String className;
     private ArrayList<Attribut> attributs; // For the ATTRIBUTS
     private ArrayList<Method> methods; // For the OPERATIONS
+    private ArrayList<String> subClasses; // For the SUBCLASSES
+    private ArrayList<Relation> relations; // For the RELATIONS
 
     /**
      * Constructor of Classe
@@ -21,6 +24,8 @@ public class Classe {
         this.className = className;
         this.attributs = attributs;
         this.methods = methods;
+        this.subClasses = new ArrayList<String>();
+        this.relations = new ArrayList<Relation>();
     }
 
     /**
@@ -65,6 +70,38 @@ public class Classe {
         this.methods = methods;
     }
 
+    /**
+     * Getter of subClasses
+     * */
+    public ArrayList<String> getSubClasses() {
+        return subClasses;
+    }
+
+    /**
+     * Setter of subClasses
+     * */
+    public void setSubClasses(ArrayList<String> subClasses) {
+        this.subClasses = subClasses;
+    }
+
+    public ArrayList<Relation> getRelations() {
+        return relations;
+    }
+
+    public void setRelations(ArrayList<Relation> relations) {
+        this.relations = relations;
+    }
+
+    /**
+     * Function to add subClass to given subClass array
+     * */
+    public void addSubClasse(String subC){
+        this.subClasses.add(subC);
+    }
+
+    public void addRelation(Relation rel){
+        this.relations.add(rel);
+    }
 
     @Override
     public String toString() {

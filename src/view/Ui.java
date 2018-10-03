@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.filechooser.*;
@@ -22,7 +23,7 @@ public class Ui {
     private JList<String> listAttributs;
     private JList<String> listMethods;
     private JList<String> listSubClasses;
-    private JList<String> listAssociations_Agregations;
+    private JList<String> listAssociations_Aggregations;
     private JList<String> listDetails;
 
     /* DefaultListModel */
@@ -30,7 +31,7 @@ public class Ui {
     private DefaultListModel<String> attributs;
     private DefaultListModel<String> methods;
     private DefaultListModel<String> subClasses;
-    private DefaultListModel<String> associations_Agregations;
+    private DefaultListModel<String> associations_Aggregations;
     private DefaultListModel<String> details;
 
     /* Parser */
@@ -46,7 +47,7 @@ public class Ui {
         this.attributs = new DefaultListModel<>();
         this.methods = new DefaultListModel<>();
         this.subClasses = new DefaultListModel<>();
-        this.associations_Agregations = new DefaultListModel<>();
+        this.associations_Aggregations = new DefaultListModel<>();
         this.details = new DefaultListModel<>();
 
         /* Initialiser tout les JList */
@@ -54,7 +55,7 @@ public class Ui {
         this.listAttributs = new JList<String>(this.attributs);
         this.listMethods = new JList<String>(this.methods);
         this.listSubClasses = new JList<String>(this.subClasses);
-        this.listAssociations_Agregations = new JList<String>(this. associations_Agregations);
+        this.listAssociations_Aggregations = new JList<String>(this.associations_Aggregations);
         this.listDetails = new JList<String>(this.details);
 
         /* La selection des nodes dans les listes. Pas toutes les listes on peut selectionner. setEnabled = false
@@ -78,7 +79,7 @@ public class Ui {
         setJListSize(this.listAttributs, 7, 20, 300);
         setJListSize(this.listMethods, 7, 20, 300);
         setJListSize(this.listSubClasses, 7, 20, 300);
-        setJListSize(this.listAssociations_Agregations, 7, 20, 300);
+        setJListSize(this.listAssociations_Aggregations, 7, 20, 300);
         setJListSize(this.listDetails, 5, 20, 400);
 
         /* Frame Initialization */
@@ -100,7 +101,7 @@ public class Ui {
         jPanelClass.setBorder(new TitledBorder(BorderFactory.createTitledBorder(
                 BorderFactory.createEtchedBorder(EtchedBorder.LOWERED)),"Classes"));
         jPanel.add(jPanelClass, BorderLayout.WEST);
-        listClasses.addMouseListener(new MouseAdapter() { // Add MouseClicked Event
+        this.listClasses.addMouseListener(new MouseAdapter() { // Add MouseClicked Event
             @Override
             public void mouseClicked(MouseEvent e) {
                 String selectedClass = listClasses.getSelectedValue();
@@ -112,7 +113,7 @@ public class Ui {
         JPanel jPanelGridParent = new JPanel();
         jPanelGridParent.setLayout(new BorderLayout());
 
-        /* JPanel de GridLayout pour Attributs, Methods, SubClass, Association et Aggregations. */
+        /* JPanel de GridLayout pour Attributs, Methods, SubClasses, Association et Aggregations. */
         JPanel jPanelGrid = new JPanel();
         jPanelGrid.setLayout(new GridLayout(2,2));
 
@@ -144,11 +145,19 @@ public class Ui {
 
         /* JPanelAssociationsAndAggregations */
         JPanel jPanelAssociationsAndAggregations = new JPanel();
-        JScrollPane jScrollPaneAssociationsAndAggregations = new JScrollPane(this.listAssociations_Agregations);
+        JScrollPane jScrollPaneAssociationsAndAggregations = new JScrollPane(this.listAssociations_Aggregations);
         jPanelAssociationsAndAggregations.add(jScrollPaneAssociationsAndAggregations);
         jPanelAssociationsAndAggregations.setBorder(new TitledBorder(BorderFactory.createTitledBorder(
                 BorderFactory.createEtchedBorder(EtchedBorder.LOWERED)),"Associations et Aggregations"));
         jPanelGrid.add(jPanelAssociationsAndAggregations);
+        this.listAssociations_Aggregations.addMouseListener(new MouseAdapter() { // Add MouseClicked Event
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                String selectedClass = listClasses.getSelectedValue();
+                String selectedRAA = listAssociations_Aggregations.getSelectedValue();
+                printDetails(selectedClass, selectedRAA);
+            }
+        });
 
         /* JPanelDetails */
         JPanel jPanelDetails = new JPanel();
@@ -213,6 +222,47 @@ public class Ui {
     }
 
     /**
+     * Method to print details once selected Relation or Association and Agregation occurs.
+     * */
+    private void printDetails(String selectedClass, String selectedRAA){
+
+        /* Clean the list so if user presses on another Relation or Association and Aggregation respective info is displayed */
+        this.details.removeAllElements();
+
+        /* Get relations associated to selectedClass */
+        ArrayList<Relation> relations = this.parser.getClassDictionnary().get(selectedClass).getRelations();
+
+        for(Relation rel : relations){
+            if (selectedRAA.contains("(R)") && rel.getRelationName().contains("(R)")){
+
+                /* Create String Array of element containing \n */
+                String toPrint[];
+                toPrint = rel.getRelationDetails().split("\n");
+                for (int i = 0; i< toPrint.length; i++) {
+                    if (i==0)
+                        this.details.addElement(toPrint[i]);
+                    else
+                        this.details.addElement("    " + toPrint[i]);
+                    }
+
+            } else if (selectedRAA.contains("(A)") && rel.getRelationName().contains("(A)")) {
+                /* Create String Array of element containing \n */
+                String toPrint[];
+                toPrint = rel.getRelationDetails().split("\n");
+                for (int i = 0; i < toPrint.length; i++) {
+                    if (toPrint[i].contains("\t")){
+                        this.details.addElement("    " + toPrint[i]);
+                    } else {
+                        this.details.addElement(toPrint[i]);
+                    }
+                }
+
+            }
+        }
+
+    }
+
+    /**
      * Method to print all class information in a .ucd file
      * */
     private void printClassesInformation(String selectedClass){
@@ -221,17 +271,28 @@ public class Ui {
         this.attributs.removeAllElements();
         this.methods.removeAllElements();
         this.subClasses.removeAllElements();
-        this.associations_Agregations.removeAllElements();
+        this.associations_Aggregations.removeAllElements();
         this.details.removeAllElements();
 
+        /* Print attributs of respective clicked class in appropriate field. */
         for(int i = 0; i < this.parser.getClassDictionnary().get(selectedClass).getAttributs().size(); i++){
             this.attributs.addElement(this.parser.getClassDictionnary().get(selectedClass).getAttributs().get(i).toString());
         }
 
+        /* Print methods of respective clicked class in appropriate field. */
         for(int i = 0; i < this.parser.getClassDictionnary().get(selectedClass).getMethods().size(); i++){
             this.methods.addElement(this.parser.getClassDictionnary().get(selectedClass).getMethods().get(i).toString());
         }
 
+        /* Print subClasses of respective clicked class in appropriate field.  */
+        for(int i = 0; i < this.parser.getClassDictionnary().get(selectedClass).getSubClasses().size(); i++){
+            this.subClasses.addElement(this.parser.getClassDictionnary().get(selectedClass).getSubClasses().get(i));
+        }
+
+        /* Print relations of respective clicked class */
+        for(int i = 0; i < this.parser.getClassDictionnary().get(selectedClass).getRelations().size(); i++){
+            this.associations_Aggregations.addElement(this.parser.getClassDictionnary().get(selectedClass).getRelations().get(i).toString());
+        }
     }
 
     /**

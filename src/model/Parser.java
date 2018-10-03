@@ -85,6 +85,7 @@ public class Parser {
     }
 
     /**
+     * @param content : fileContent
      * Translate File in different places amongst information.
      * CLASS
      * GENERALIZATION
@@ -96,12 +97,11 @@ public class Parser {
             if (content.get(i).equals("CLASS")){
                 i = parseClass(i, content);
             } else if (content.get(i).equals("GENERALIZATION")) {
-                break;
-//                i = parseGeneralization(i, content);
+                i = parseGeneralization(i, content);
             } else if (content.get(i).equals("RELATION")) {
-                parseRelation();
+                i = parseRelation(i, content);
             } else if (content.get(i).equals("AGGREGATION")) {
-                parseAgregation();
+                i = parseAgregation(i, content);
             }
         }
     }
@@ -109,7 +109,8 @@ public class Parser {
     /**
      * Method with 2 ArrayList (ATTRIBUTS and OPERATIONS)
      * This method will fill in attributs and
-     * @param i int : position where CLASS starts in ArrayList of FileContent
+     * @param i : index of where parseClass starts at
+     * @param content : fileContent
      * @return i int : position where CLASS ends
      * */
     private int parseClass(int i, ArrayList<String> content){
@@ -159,27 +160,84 @@ public class Parser {
     }
 
     /**
-     * Method with 1 ArrayList (SUBCLASSES)
+     * @param i : index of where parseGeneralization starts at
+     * @param content : fileContent
      * */
     private int parseGeneralization(int i, ArrayList<String> content){
+        i++;
+        String motherClass = content.get(i);
+        i+=2; // No multiple motherClasses !
+
         ArrayList<String> subClasses = new ArrayList<String>();
+
+        while (!content.get(i).equals(";")){
+            subClasses.add(content.get(i));
+            i++;
+        }
+
+        for (String subClass : subClasses) {
+            this.getClassDictionnary().get(motherClass).addSubClasse(subClass);
+        }
+        return i;
+    }
+
+    /**
+     * @param i : index of where parseRelation starts at
+     * @param content : fileContent
+     * */
+    private int parseRelation(int i, ArrayList<String> content){
+        String relation = content.get(i+1);
+        String relationDetails = content.get(i) + " " + relation + "\n";
+        i+=2;
+
+        relationDetails += "\t" + content.get(i) + "\n";
+        i++;
+
+        Relation rel = new Relation(relation);
+
+        while (!content.get(i).equals(";")){
+            if (content.get(i).equals("CLASS")){
+                rel.setRelationName("(R) " + content.get(i+1));
+                this.getClassDictionnary().get(content.get(i+1)).addRelation(rel); // Ajouter la relation au Dictionnaire
+                relationDetails += "\t" + content.get(i);
+                relationDetails += " " + content.get(i+1) + " " + content.get(i+2);
+                i+=3;
+            }
+            relationDetails += "\n";
+        }
+        rel.setRelationDetails(relationDetails);
 
         return i;
     }
 
     /**
-     * Method with 1 ArrayList (ROLES)
+     * @param i : index of where parseAggregation starts at
+     * @param content : fileContent
      * */
-    private void parseRelation(){
-        ArrayList<String> roles = new ArrayList<String>();
-    }
+    private int parseAgregation(int i, ArrayList<String> content){
 
-    /**
-     * Method with 2 ArrayList (CONTAINER and PARTS)
-     * */
-    private void parseAgregation(){
-        ArrayList<String> container = new ArrayList<String>();
-        ArrayList<String> parts = new ArrayList<String>();
+        String aggregation = "Aggregation"; // We are at and aggregation now
+        String aggregationDetails = content.get(i);
+        i++;
+
+        Relation rel = new Relation(aggregation);
+
+        while (!content.get(i).equals(";")){
+            if (content.get(i).equals("CONTAINER") || content.get(i).equals("PARTS")){
+                aggregationDetails += "\n" + content.get(i) + "\n";
+            } else if (content.get(i).equals("CLASS")){
+                rel.setRelationName("(A) " + content.get(i+1));
+                aggregationDetails += "\t" + content.get(i) + " ";
+                this.getClassDictionnary().get(content.get(i+1)).addRelation(rel);
+            } else {
+                aggregationDetails += content.get(i) + " ";
+            }
+            i++;
+        }
+
+        rel.setRelationDetails(aggregationDetails);
+
+        return i;
     }
 
     public static void main(String[] args) {
