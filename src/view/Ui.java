@@ -192,8 +192,6 @@ public class Ui {
                 String filePath = this.jFileChooser.getSelectedFile().getAbsolutePath();
                 jTextFieldPath.setText(filePath);
 
-                // TODO: Add parser here ...
-
                 this.parser = new Parser(filePath);
 
                 printClasses();
@@ -217,6 +215,8 @@ public class Ui {
      * */
     private void printClasses() {
         for (String key : this.parser.getClassDictionnary().keySet()) {
+            // Ajouter un vérificateur si une classe existante est déja dans la liste
+            // Simplement ne pas l'ajouter et imprimer un message explicitant l'erreur
             this.classes.addElement(key);
         }
     }
@@ -256,7 +256,6 @@ public class Ui {
                         this.details.addElement(toPrint[i]);
                     }
                 }
-
             }
         }
 

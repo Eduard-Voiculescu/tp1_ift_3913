@@ -58,7 +58,12 @@ public class Parser {
                 }
 
                 /* Add all the words one by one, while ignoring () and , */
-                line = line.replace(":", " : "); // We keep :
+                // If we see any of the :, ::, :=, =, ::=, replace with :
+                line = line.replace(":", " : ")
+                        .replace("::", " : ")
+                        .replace(":=", " : ")
+                        .replace("=", " : ")
+                        .replace("::=", " : ");
                 line = line.replace(";", " ; "); // We keep ;
                 String[] words = line.split("\\s+|,|\\(|\\)"); // Ignore |space , ( )|
 
