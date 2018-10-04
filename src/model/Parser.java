@@ -106,7 +106,7 @@ public class Parser {
             } else if (content.get(i).equals("RELATION")) {
                 i = parseRelation(i, content);
             } else if (content.get(i).equals("AGGREGATION")) {
-                i = parseAgregation(i, content);
+                i = parseAggregation(i, content);
             }
         }
     }
@@ -202,7 +202,7 @@ public class Parser {
 
         while (!content.get(i).equals(";")){
             if (content.get(i).equals("CLASS")){
-                rel.setRelationName("(R) " + content.get(i+1));
+                rel.setRelationName("(R) " + relation);
                 this.getClassDictionnary().get(content.get(i+1)).addRelation(rel); // Ajouter la relation au Dictionnaire
                 relationDetails += "\t" + content.get(i);
                 relationDetails += " " + content.get(i+1) + " " + content.get(i+2);
@@ -219,7 +219,7 @@ public class Parser {
      * @param i : index of where parseAggregation starts at
      * @param content : fileContent
      * */
-    private int parseAgregation(int i, ArrayList<String> content){
+    private int parseAggregation(int i, ArrayList<String> content){
 
         String aggregation = "Aggregation"; // We are at and aggregation now
         String aggregationDetails = content.get(i);

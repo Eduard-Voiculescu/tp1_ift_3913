@@ -233,7 +233,7 @@ public class Ui {
         ArrayList<Relation> relations = this.parser.getClassDictionnary().get(selectedClass).getRelations();
 
         for(Relation rel : relations){
-            if (selectedRAA.contains("(R)") && rel.getRelationName().contains("(R)")){
+            if (selectedRAA.contains("(R)") && rel.getRelationName().equals(selectedRAA)){
 
                 /* Create String Array of element containing \n */
                 String toPrint[];
@@ -245,7 +245,7 @@ public class Ui {
                         this.details.addElement("    " + toPrint[i]);
                     }
 
-            } else if (selectedRAA.contains("(A)") && rel.getRelationName().contains("(A)")) {
+            } else if (selectedRAA.contains("(A)") && rel.getRelationName().equals(selectedRAA)) {
                 /* Create String Array of element containing \n */
                 String toPrint[];
                 toPrint = rel.getRelationDetails().split("\n");
