@@ -79,10 +79,6 @@ public class Parser {
             fr.close();
             bf.close();
 
-            for (String l: this.fileContent) {
-                System.out.println(l);
-            }
-
         } catch (Exception e) {
             System.out.println("Error while reading file");
             System.out.println(e.getMessage());
