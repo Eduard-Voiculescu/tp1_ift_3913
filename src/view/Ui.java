@@ -214,6 +214,7 @@ public class Ui {
      * Method to print all classes in a .ucd file
      * */
     private void printClasses() {
+        this.classes.removeAllElements();
         for (String key : this.parser.getClassDictionnary().keySet()) {
             // Ajouter un vérificateur si une classe existante est déja dans la liste
             // Simplement ne pas l'ajouter et imprimer un message explicitant l'erreur
@@ -273,25 +274,41 @@ public class Ui {
         this.associations_Aggregations.removeAllElements();
         this.details.removeAllElements();
 
-        /* Print attributs of respective clicked class in appropriate field. */
-        for(int i = 0; i < this.parser.getClassDictionnary().get(selectedClass).getAttributs().size(); i++){
-            this.attributs.addElement(this.parser.getClassDictionnary().get(selectedClass).getAttributs().get(i).toString());
+        try{
+            /* Print attributs of respective clicked class in appropriate field. */
+            for(int i = 0; i < this.parser.getClassDictionnary().get(selectedClass).getAttributs().size(); i++){
+                this.attributs.addElement(this.parser.getClassDictionnary().get(selectedClass).getAttributs().get(i).toString());
+            }
+        } catch (NullPointerException e) {
+            System.out.println("There are no attributs to put in the UI");
+        }
+        try {
+            /* Print methods of respective clicked class in appropriate field. */
+            for(int i = 0; i < this.parser.getClassDictionnary().get(selectedClass).getMethods().size(); i++){
+                this.methods.addElement(this.parser.getClassDictionnary().get(selectedClass).getMethods().get(i).toString());
+            }
+        } catch (NullPointerException e) {
+            System.out.println("There are no methods to put in the UI");
         }
 
-        /* Print methods of respective clicked class in appropriate field. */
-        for(int i = 0; i < this.parser.getClassDictionnary().get(selectedClass).getMethods().size(); i++){
-            this.methods.addElement(this.parser.getClassDictionnary().get(selectedClass).getMethods().get(i).toString());
+        try {
+            /* Print subClasses of respective clicked class in appropriate field.  */
+            for(int i = 0; i < this.parser.getClassDictionnary().get(selectedClass).getSubClasses().size(); i++){
+                this.subClasses.addElement(this.parser.getClassDictionnary().get(selectedClass).getSubClasses().get(i));
+            }
+        } catch (NullPointerException e) {
+            System.out.println("There are no subClasses to put in the UI");
         }
 
-        /* Print subClasses of respective clicked class in appropriate field.  */
-        for(int i = 0; i < this.parser.getClassDictionnary().get(selectedClass).getSubClasses().size(); i++){
-            this.subClasses.addElement(this.parser.getClassDictionnary().get(selectedClass).getSubClasses().get(i));
+        try {
+            /* Print relations of respective clicked class */
+            for(int i = 0; i < this.parser.getClassDictionnary().get(selectedClass).getRelations().size(); i++){
+                this.associations_Aggregations.addElement(this.parser.getClassDictionnary().get(selectedClass).getRelations().get(i).toString());
+            }
+        } catch (NullPointerException e) {
+            System.out.println("There are no associations and/or Aggregations to put in the UI");
         }
 
-        /* Print relations of respective clicked class */
-        for(int i = 0; i < this.parser.getClassDictionnary().get(selectedClass).getRelations().size(); i++){
-            this.associations_Aggregations.addElement(this.parser.getClassDictionnary().get(selectedClass).getRelations().get(i).toString());
-        }
     }
 
     /**

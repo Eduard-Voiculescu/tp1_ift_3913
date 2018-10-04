@@ -17,6 +17,9 @@ public class Parser {
     /* ArrayList containing all the lines in the file read */
     private ArrayList<String> fileContent;
 
+    /* Variable used for testing purposes */
+    public boolean fileIsOk;
+
     /**
      * Constructeur du Parseur
      * @param filePath String : path to file to read
@@ -26,6 +29,7 @@ public class Parser {
         this.classDictionnary = new HashMap<String, Classe>();
         this.filePath = filePath;
         this.fileContent = new ArrayList<String>();
+        this.fileIsOk = true; // we assume file is ok at the beginning
 
         readFile(this.filePath);
         parseFile(this.fileContent);
@@ -54,16 +58,17 @@ public class Parser {
             while ((line = bf.readLine())!= null){
                 if (i == 0 && !line.contains("MODEL")) { // Verify that it is indeed a MODEL
                     System.out.println("UML Diagram does not start with MODEL - Error, improper UML Class Diagram");
+                    this.fileIsOk = false;
                     return;
                 }
 
                 /* Add all the words one by one, while ignoring () and , */
                 // If we see any of the :, ::, :=, =, ::=, replace with :
-                line = line.replace(":", " : ")
+                line = line.replace("::=", " : ")
                         .replace("::", " : ")
                         .replace(":=", " : ")
                         .replace("=", " : ")
-                        .replace("::=", " : ");
+                        .replace(":", " : ");
                 line = line.replace(";", " ; "); // We keep ;
                 String[] words = line.split("\\s+|,|\\(|\\)"); // Ignore |space , ( )|
 
@@ -156,7 +161,21 @@ public class Parser {
         }
         classe.setAttributs(attributs);
         classe.setMethods(operations);
-        this.classDictionnary.put(classe.getClassName(), classe);
+
+        /* We have to verify that if a given classe already exists in the dictionary to simply not put it it
+         * and print out a message
+         */
+        if(this.classDictionnary.size() == 0){
+            this.classDictionnary.put(classe.getClassName(), classe);
+        } else {
+            if(!this.classDictionnary.containsKey(classe.getClassName())){
+                this.classDictionnary.put(classe.getClassName(), classe);
+
+            } else {
+                System.out.println("--- ERROR : Class " + classe.getClassName() + " already exists in the UML Diagram. We will wimply ignore the doubled class ---");
+                this.fileIsOk = false;
+            }
+        }
         return i;
     }
 
@@ -241,7 +260,5 @@ public class Parser {
         return i;
     }
 
-    public static void main(String[] args) {
-        Parser parser = new Parser("C:\\Users\\Eddy\\Desktop\\Ligue.ucd");
-    }
+
 }
