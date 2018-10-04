@@ -172,7 +172,7 @@ public class Parser {
                 this.classDictionnary.put(classe.getClassName(), classe);
 
             } else {
-                System.out.println("--- ERROR : Class " + classe.getClassName() + " already exists in the UML Diagram. We will wimply ignore the doubled class ---");
+                System.out.println("--- ERROR : Class " + classe.getClassName() + " already exists in the UML Diagram. We will simply ignore the doubled class ---");
                 this.fileIsOk = false;
             }
         }

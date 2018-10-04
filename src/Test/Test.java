@@ -2,13 +2,24 @@ package Test;
 
 import model.Parser;
 
+/**
+ * PLEASE NOTE: WE ADDED COLOR TO OUR PRINT STATEMENTS. TESTS THAT FAIL WILL PRINT OUT RED AND TESTS
+ * THAT PASS WILL PRINT OUT GREEN. IT IS POSSIBLE THAT ON WINDOWS COMMAND PROMPT THE COLORS WILL NOT SHOW.
+ * ON CYGWIN AND LINUX BASH, COLORS DO SHOW. FOR MAC, IT DEPENDS ON THAT MAC VERSION, SOME WORK SOME DON'T.
+ * */
+
 public class Test {
+
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_GREEN = "\u001B[32m";
 
     private final static String userDir = System.getProperty("user.dir") + "\\src\\Test\\";
     private static String pathToLigueNoModel = "Ligue_no_model.ucd";
     private static String pathToLigueDifferentAssignment = "Ligue_different_assignment.ucd";
     private static String pathToLigueAllClassesAreDoubled = "Ligue_all_classes_are_doubled.ucd";
-
+    private static String pathToLigueClassesDoubledDifferentAttributs = "Ligue_classes_doubled_different_attributs.ucd";
+    private static String pathToLigueClassesDoubledDifferentOperations =  "Ligue_classes_doubled_different_operations.ucd";
 
     /**
      * This function should print out :
@@ -18,10 +29,10 @@ public class Test {
 
         Parser parser = new Parser(userDir + pathToLigueNoModel);
         if (parser.fileIsOk) {
-            System.out.println((char)27 + "[31m" + "testLigueNoModel -- Failed");
+            System.out.println(ANSI_RED + "testLigueNoModel -- Failed" + ANSI_RESET);
             throw new AssertionError();
         }
-        System.out.println("testLigueAllClassesAreDoubled -- Passed");
+        System.out.println(ANSI_GREEN + "testLigueNoModel -- Passed" + ANSI_RESET);
     }
 
     /**
@@ -31,23 +42,57 @@ public class Test {
 
         Parser parser = new Parser(userDir + pathToLigueDifferentAssignment);
         if (!parser.fileIsOk){
-            System.out.println((char)27 + "[31m" + "testLigueDifferentAssignment -- Failed");
+            System.out.println(ANSI_RED + "testLigueDifferentAssignment -- Failed" + ANSI_RESET);
             throw new AssertionError();
         }
-        System.out.println("testLigueAllClassesAreDoubled -- Passed");
+        System.out.println(ANSI_GREEN + "testLigueDifferentAssignment -- Passed" + ANSI_RESET);
     }
 
     /**
-     * This function is used to check if Ligue with different assignment will still work
+     * This function is used to check if Ligue with same classes will show the same classes
      */
     private static void testLigueAllClassesAreDoubled (String pathToLigueAllClassesAreDoubled){
 
         Parser parser = new Parser(userDir + pathToLigueAllClassesAreDoubled);
         if (parser.fileIsOk) {
-            System.out.println((char)27 + "[31m" + "testLigueAllClassesAreDoubled -- Failed");
+            System.out.println(ANSI_RED + "testLigueAllClassesAreDoubled -- Failed" + ANSI_RESET);
             throw new AssertionError();
         }
-        System.out.println((char)27 + "[31m" + "testLigueAllClassesAreDoubled -- Passed");
+        System.out.println(ANSI_GREEN + "testLigueAllClassesAreDoubled -- Passed" + ANSI_RESET);
+
+    }
+
+    /**
+     * This function is used to check if Ligue with different classes with different attributs
+     * will show up.
+     * We programed it that only the first instance of a given class with show. So if additional
+     * classes but different attributs will be omitted.
+     */
+    private static void testLigueClassesDoubledDifferentAttributs(String pathToLigueClassesDoubledDifferentAttributs){
+
+        Parser parser = new Parser(userDir + pathToLigueClassesDoubledDifferentAttributs);
+        if (parser.fileIsOk) {
+            System.out.println(ANSI_RED + "pathToLigueClassesDoubledDifferentAttributs -- Failed" + ANSI_RESET);
+            throw new AssertionError();
+        }
+        System.out.println(ANSI_GREEN + "pathToLigueClassesDoubledDifferentAttributs -- Passed" + ANSI_RESET);
+
+    }
+
+    /**
+     * This function is used to check if Ligue with different classes with different operations
+     * will show up.
+     * We programed it that only the first instance of a given class with show. So if additional
+     * classes but different operations will be omitted.
+     */
+    private static void testLigueClassesDoubledDifferentOperations(String pathToLigueClassesDoubledDifferentOperations){
+
+        Parser parser = new Parser(userDir + pathToLigueClassesDoubledDifferentOperations);
+        if (parser.fileIsOk) {
+            System.out.println(ANSI_RED + "pathToLigueClassesDoubledDifferentOperations -- Failed" + ANSI_RESET);
+            throw new AssertionError();
+        }
+        System.out.println(ANSI_GREEN + "pathToLigueClassesDoubledDifferentOperations -- Passed" + ANSI_RESET);
 
     }
 
@@ -55,6 +100,8 @@ public class Test {
         testLigueNoModel(pathToLigueNoModel);
         testLigueDifferentAssignment(pathToLigueDifferentAssignment);
         testLigueAllClassesAreDoubled(pathToLigueAllClassesAreDoubled);
+        testLigueClassesDoubledDifferentAttributs(pathToLigueClassesDoubledDifferentAttributs);
+        testLigueClassesDoubledDifferentOperations(pathToLigueClassesDoubledDifferentOperations);
     }
 
 }
