@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"model","l":"Attribut"},{"p":"model","l":"Classe"},{"p":"view","l":"Main"},{"p":"model","l":"Method"},{"p":"model","l":"Parser"},{"p":"model","l":"Relation"},{"p":"Test","l":"Test"},{"p":"view","l":"Ui"}]

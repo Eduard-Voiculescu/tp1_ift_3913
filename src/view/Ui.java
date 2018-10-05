@@ -1,4 +1,5 @@
 package view;
+
 /* Imports */
 import javax.swing.*;
 import java.awt.*;
@@ -38,7 +39,7 @@ public class Ui {
     private Parser parser;
 
     /**
-     * Ui constructor
+     * Constructor
      * */
     public Ui (){
 
@@ -127,9 +128,7 @@ public class Ui {
 
         /* JPanelMethods */
         JPanel jPanelMethods = new JPanel();
-        JScrollPane jScrollPaneMethods = new JScrollPane(this.listMethods);
-        jScrollPaneMethods.setHorizontalScrollBarPolicy(
-                JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        JScrollPane jScrollPaneMethods = new JScrollPane(this.listMethods, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         jPanelMethods.add(jScrollPaneMethods);
         jPanelMethods.setBorder(new TitledBorder(BorderFactory.createTitledBorder(
                 BorderFactory.createEtchedBorder(EtchedBorder.LOWERED)),"Methods"));
@@ -215,6 +214,11 @@ public class Ui {
      * */
     private void printClasses() {
         this.classes.removeAllElements();
+        this.attributs.removeAllElements();
+        this.methods.removeAllElements();
+        this.subClasses.removeAllElements();
+        this.associations_Aggregations.removeAllElements();
+        this.details.removeAllElements();
         for (String key : this.parser.getClassDictionnary().keySet()) {
             // Ajouter un vérificateur si une classe existante est déja dans la liste
             // Simplement ne pas l'ajouter et imprimer un message explicitant l'erreur
@@ -224,6 +228,8 @@ public class Ui {
 
     /**
      * Method to print details once selected Relation or Association and Agregation occurs.
+     * @param selectedClass : selectedClass String
+     * @param selectedRAA : selectedRAA (relations or associations and aggregations) String
      * */
     private void printDetails(String selectedClass, String selectedRAA){
 
@@ -264,6 +270,7 @@ public class Ui {
 
     /**
      * Method to print all class information in a .ucd file
+     * @param selectedClass : selectedClass String
      * */
     private void printClassesInformation(String selectedClass){
 
@@ -313,6 +320,10 @@ public class Ui {
 
     /**
      * Method to set JListSize for all area in the Ui interface
+     * @param jList : sets jList
+     * @param rowCount : sets j:ist RowCount to rowCount (int)
+     * @param cellHeight : sets jList CellHeight to cellHeight (int)
+     * @param cellWidth : sets jList CellWidth to cellWidth (int)
      * */
     private void setJListSize(JList jList, int rowCount, int cellHeight, int cellWidth) {
         jList.setVisibleRowCount(rowCount);

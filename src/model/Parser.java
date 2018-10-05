@@ -9,6 +9,10 @@ import java.util.Map;
 /**
  * PLEASE NOTE: IF A .ucd FILE AND PROVIDED AND ONE ERROR OCCURS, WE WILL SIMPLY PRINT OUT THE ENTIRE
  * STACK TRACE. THE UI WILL NOT CLOSE. THE USER CAN THEN SELECT A VALID UML CLASS DIAGRAM.
+ *
+ * PLEASE NOTE 2: WE ADDED COLOR TO OUR PRINT STATEMENTS. TESTS THAT FAIL WILL PRINT OUT RED AND TESTS
+ * THAT PASS WILL PRINT OUT GREEN. IT IS POSSIBLE THAT ON WINDOWS COMMAND PROMPT THE COLORS WILL NOT SHOW.
+ * ON CYGWIN AND LINUX BASH, COLORS DO SHOW. FOR MAC, IT DEPENDS ON THAT MAC VERSION, SOME WORK SOME DON'T.
  * */
 
 public class Parser {
@@ -79,7 +83,7 @@ public class Parser {
             /* Inspiration https://www.geeksforgeeks.org/different-ways-reading-text-file-java/ */
             while ((line = bf.readLine())!= null){
                 if (i == 0 && !line.contains("MODEL")) { // Verify that it is indeed a MODEL
-                    System.out.println("UML Diagram does not start with MODEL - Error, improper UML Class Diagram");
+                    System.out.println(ANSI_RED + "--- ERROR UML Diagram does not start with MODEL - Error, improper UML Class Diagram ---" + ANSI_RESET);
                     this.valide = false;
                     return;
                 }
@@ -255,6 +259,7 @@ public class Parser {
     /**
      * @param i : index of where parseGeneralization starts at
      * @param content : fileContent
+     * @return i int : position where GENERALIZATION ends
      * */
     private int parseGeneralization(int i, ArrayList<String> content){
         i++;
@@ -277,6 +282,7 @@ public class Parser {
     /**
      * @param i : index of where parseRelation starts at
      * @param content : fileContent
+     * @return i int : position where RELATION ends
      * */
     private int parseRelation(int i, ArrayList<String> content){
         String relation = content.get(i+1);
@@ -306,6 +312,7 @@ public class Parser {
     /**
      * @param i : index of where parseAggregation starts at
      * @param content : fileContent
+     * @return i int : position where AGGREGATION ends
      * */
     private int parseAggregation(int i, ArrayList<String> content){
 
@@ -331,10 +338,6 @@ public class Parser {
         rel.setRelationDetails(aggregationDetails);
 
         return i;
-    }
-
-    public static void main(String[] args) {
-        Parser p = new Parser("C:\\Users\\Eddy\\Documents\\UdeM\\Automne_2018\\IFT_3913\\TP1\\tp1_ift_3913\\src\\Test\\Ligue.ucd");
     }
 
 }

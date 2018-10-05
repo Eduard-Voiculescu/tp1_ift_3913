@@ -15,6 +15,7 @@ public class Test {
     public static final String ANSI_GREEN = "\u001B[32m";
 
     private final static String userDir = System.getProperty("user.dir") + "\\src\\Test\\";
+
     private static String pathToLigueNoModel = "Ligue_no_model.ucd";
     private static String pathToLigueDifferentAssignment = "Ligue_different_assignment.ucd";
     private static String pathToLigueAllClassesAreDoubled = "Ligue_all_classes_are_doubled.ucd";
@@ -27,6 +28,7 @@ public class Test {
     /**
      * This function should print out :
      * - UML Diagram does not start with MODEL - Error, improper UML Class Diagram-
+     * @param pathToLigueNoModel : path to ligue with no model
      */
     private static void testLigueNoModel (String pathToLigueNoModel){
 
@@ -40,6 +42,7 @@ public class Test {
 
     /**
      * This function is used to check if Ligue with different assignment will still work
+     * @param pathToLigueDifferentAssignment : paht to ligue with different assignment
      */
     private static void testLigueDifferentAssignment (String pathToLigueDifferentAssignment){
 
@@ -53,6 +56,7 @@ public class Test {
 
     /**
      * This function is used to check if Ligue with same classes will show the same classes
+     * @param pathToLigueAllClassesAreDoubled : path to ligue where all classes are doubled
      */
     private static void testLigueAllClassesAreDoubled (String pathToLigueAllClassesAreDoubled){
 
@@ -70,6 +74,7 @@ public class Test {
      * will show up.
      * We programed it that only the first instance of a given class with show. So if additional
      * classes but different attributs will be omitted.
+     * @param pathToLigueClassesDoubledDifferentAttributs : path to ligue where classes are doubled with different attributs
      */
     private static void testLigueClassesDoubledDifferentAttributs(String pathToLigueClassesDoubledDifferentAttributs){
 
@@ -87,6 +92,7 @@ public class Test {
      * will show up.
      * We programed it that only the first instance of a given class with show. So if additional
      * classes but different operations will be omitted.
+     * @param pathToLigueClassesDoubledDifferentOperations : path to ligue where classes are double with different operations
      */
     private static void testLigueClassesDoubledDifferentOperations(String pathToLigueClassesDoubledDifferentOperations){
 
@@ -104,6 +110,7 @@ public class Test {
      * will show up.
      * We programed it that only the first instance of a given class with show. So if additional
      * classes but different attrubut type with same name, they will be omitted.
+     * @param pathToLigueClassesWithSameAttributNameButDifferentType : path to ligue where slasses have same attributs but different types
      */
     private static void testLigueClassesWithSameAttributNameButDifferentType(String pathToLigueClassesWithSameAttributNameButDifferentType){
 
@@ -120,6 +127,7 @@ public class Test {
      * This function is used to check if Ligue with different classes with same operations name and same attributs type
      * will show up.
      * We programed it that operations iwth samme name and same attributs type (all of them) they will not show up.
+     * @param LigueClassesWithSameOperationsSameAttributsType : path to ligue where classes have same operations with same attributs type
      */
     private static void testLigueClassesWithSameOperationsSameAttributsType(String LigueClassesWithSameOperationsSameAttributsType){
 
@@ -136,6 +144,7 @@ public class Test {
      * This function is used to check if Ligue with different classes with same operations name but different operations type
      * will show up.
      * We programed it that operations with same name but different type will show up.
+     * @param LigueClasseWithSameNameMethodButDifferentType : path to ligue where classes have same name methode but different type
      */
     private static void testLigueClasseWithSameNameMethodButDifferentType(String LigueClasseWithSameNameMethodButDifferentType){
 
