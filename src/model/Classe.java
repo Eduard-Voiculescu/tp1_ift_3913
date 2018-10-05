@@ -1,5 +1,9 @@
 package model;
 
+/**
+ * Created by Eduard Voiculescu and Sami Steenhaut on 4 october 2018
+ */
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 

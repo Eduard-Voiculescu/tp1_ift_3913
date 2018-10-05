@@ -1,5 +1,9 @@
 package view;
 
+/**
+ * Created by Eduard Voiculescu and Sami Steenhaut on 4 october 2018
+ */
+
 /* Imports */
 import javax.swing.*;
 import java.awt.*;

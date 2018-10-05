@@ -1,5 +1,9 @@
 package Test;
 
+/**
+ * Created by Eduard Voiculescu and Sami Steenhaut on 4 october 2018
+ */
+
 import model.Parser;
 
 /**
