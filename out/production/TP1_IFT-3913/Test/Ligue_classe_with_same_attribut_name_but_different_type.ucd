@@ -1,39 +1,24 @@
 MODEL Ligue
 CLASS Equipe 
 ATTRIBUTES 
-      nom_equipe : String
+      nom_equipe : String,
+	  nom_equipe : Integer
 OPERATIONS
       nombre_joueurs() : Integer,
       entraineur() : String,
       add_joueur(element : Joueur) : void
 ;
 
-CLASS Equipe 
-ATTRIBUTES 
-      nom_equipe : String
-OPERATIONS
-      noms_Des_Joueurs() : String,
-      numero_du_entraineur() : Integer,
-      add_joueur(element : Joueur) : void
-;
-
 CLASS Participant 
 ATTRIBUTES 
-	nom : String
+nom : String
 OPERATIONS 
-;
-
-CLASS Participant 
-ATTRIBUTES 
-	nom : String
-OPERATIONS
-	  coucoutoto() : Integer,
-	  totocoucou() : String
 ;
 
 CLASS Joueur
 ATTRIBUTES 
       saison : Integer,
+	  saison : String,
       statut : String
 OPERATIONS 
       nombre_saisons() : Integer,
@@ -42,7 +27,8 @@ OPERATIONS
 
 CLASS Entraineur
 ATTRIBUTES 
-      degre : Integer
+      degre : Integer,
+	  degre : Boolean
 OPERATIONS 
 ;
 

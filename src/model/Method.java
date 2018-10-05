@@ -14,7 +14,10 @@ public class Method {
     private ArrayList<Attribut> attributs;
 
     /**
-     * Constructor of Method
+     * Constructor
+     * @param methodName (required) : name of method
+     * @param methodType (required) : type of method
+     * @param attributs (required) : ArrayList of attributs related to method
      * */
     public Method(String methodName, String methodType, ArrayList<Attribut> attributs) {
         this.methodName = methodName;
@@ -24,6 +27,7 @@ public class Method {
 
     /**
      * Getter of methodName
+     * @return : method name
      * */
     public String getMethodName() {
         return methodName;
@@ -31,6 +35,7 @@ public class Method {
 
     /**
      * Setter of methodName
+     * @param methodName : sets method name
      * */
     public void setMethodName(String methodName) {
         this.methodName = methodName;
@@ -38,6 +43,7 @@ public class Method {
 
     /**
      * Getter of methodType
+     * @return : type of method
      * */
     public String getMethodType() {
         return methodType;
@@ -45,6 +51,7 @@ public class Method {
 
     /**
      * Setter of methodType
+     * @param methodType : sets method type
      * */
     public void setMethodType(String methodType) {
         this.methodType = methodType;
@@ -52,6 +59,7 @@ public class Method {
 
     /**
      * Getter of attributs
+     * @return : ArrayList of attributs
      * */
     public ArrayList<Attribut> getAttributs() {
         return attributs;
@@ -59,6 +67,7 @@ public class Method {
 
     /**
      * Setter of attributs
+     * @param attributs : sets ArrayList of attributs
      * */
     public void setAttributs(ArrayList<Attribut> attributs) {
         this.attributs = attributs;
@@ -66,13 +75,15 @@ public class Method {
 
     /**
      * Add attributs to ArrayList
+     * @param attributs : adds attribut to ArrayList of attributs
      */
     public void addArgument(Attribut attributs){
-        getAttributs().add(attributs);
+        this.attributs.add(attributs);
     }
 
     /**
      * Overriding toString() to better fitting in Ui
+     * @return : personalized string toString() to better fitting in Ui
      * */
     @Override
     public String toString() {

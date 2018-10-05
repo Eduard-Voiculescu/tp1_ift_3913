@@ -6,7 +6,26 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * PLEASE NOTE: IF A .ucd FILE AND PROVIDED AND ONE ERROR OCCURS, WE WILL SIMPLY PRINT OUT THE ENTIRE
+ * STACK TRACE. THE UI WILL NOT CLOSE. THE USER CAN THEN SELECT A VALID UML CLASS DIAGRAM.
+ * */
+
 public class Parser {
+
+    /**
+     * @properties
+     * Map<String, Classe> : classDictionnary
+     * String : filePath
+     * String filePathArrayList<String> : fileContent
+     * ArrayList<String> : fileContent
+     * boolean : valide;
+     * */
+
+    private static final String ANSI_RESET = "\u001B[0m";
+    private static final String ANSI_RED = "\u001B[31m";
+    private static final String ANSI_GREEN = "\u001B[32m";
+
 
     /* Dictionary containing all classes */
     private Map<String, Classe> classDictionnary;
@@ -18,18 +37,19 @@ public class Parser {
     private ArrayList<String> fileContent;
 
     /* Variable used for testing purposes */
-    public boolean fileIsOk;
+    public boolean valide;
 
     /**
-     * Constructeur du Parseur
-     * @param filePath String : path to file to read
+     * Constructor
+     * @param filePath String (required) : path to file to read
+     * Also sets filepath, fileContent and valide variables
      * */
     public Parser(String filePath) {
 
         this.classDictionnary = new HashMap<String, Classe>();
         this.filePath = filePath;
         this.fileContent = new ArrayList<String>();
-        this.fileIsOk = true; // we assume file is ok at the beginning
+        this.valide = true; // we assume file is ok at the beginning
 
         readFile(this.filePath);
         parseFile(this.fileContent);
@@ -38,13 +58,15 @@ public class Parser {
 
     /**
      * Getter du dictionnaire de classe
+     * @return : Map<String, Classe> of classDictionnary
      * */
     public Map<String, Classe> getClassDictionnary() {
         return classDictionnary;
     }
 
     /**
-     * Method to read file content and put in ArrayList FileContent
+     * Method to read file content and put in ArrayList FileContent. Reads entire file till the end.
+     * @param filePath : filePath to where file is read
      * */
     private void readFile(String filePath) {
         try {
@@ -58,7 +80,7 @@ public class Parser {
             while ((line = bf.readLine())!= null){
                 if (i == 0 && !line.contains("MODEL")) { // Verify that it is indeed a MODEL
                     System.out.println("UML Diagram does not start with MODEL - Error, improper UML Class Diagram");
-                    this.fileIsOk = false;
+                    this.valide = false;
                     return;
                 }
 
@@ -137,7 +159,21 @@ public class Parser {
                 i++;
                 while (!content.get(i).equals("OPERATIONS")){
                     Attribut attribut = new Attribut(content.get(i), content.get(i+2));
-                    attributs.add(attribut);
+                    if (attributs.size() == 0){ // There is nothing in the attribut list
+                        attributs.add(attribut);
+                    } else {
+                        boolean canAdd = true; // boolean value to see if we can add attribute
+                        for(int j = 0; j < attributs.size(); j++) {
+                            if(attributs.get(j).getAttributName().equals(attribut.getAttributName())){
+                                System.out.println(ANSI_RED + "--- ERROR " + attribut.getAttributName() +  " already exists in " + classe.getClassName() + " ---" + ANSI_RESET);
+                                valide = false;
+                                canAdd = false;
+                                break;
+                            }
+                        }
+                        if (canAdd)
+                            attributs.add(attribut);
+                    }
                     i+=3;
                 }
 
@@ -154,7 +190,44 @@ public class Parser {
                     }
                     // The method does not have any arguments
                     method.setMethodType(content.get(i+2));
-                    operations.add(method);
+                    if (operations.size() == 0){ // There is nothing in the operations list
+                        operations.add(method);
+                    } else {
+                        boolean canAdd = true; // boolean value to see if we can add method
+                        for(int j = 0; j < operations.size(); j++){
+                            if(operations.get(j).getMethodName().equals(method.getMethodName())){
+                                // both methods have no arguments and both methods are of same type
+                                if(operations.get(j).getAttributs().size() == 0 && method.getAttributs().size() == 0 && operations.get(j).getMethodType().equals(method.getMethodType())){
+                                    System.out.println(ANSI_RED + "--- ERROR method " + method.getMethodName() + " already exists in " + classe.getClassName() + " ---" + ANSI_RESET);
+                                    valide = false;
+                                    canAdd = false;
+                                    break;
+                                } else { // both methods have arguments and both methods are of same type
+                                    int numberOfEqualArguments = 0;
+                                    for (int k = 0; k < operations.get(j).getAttributs().size(); k++){
+                                        // attribut type of arguments of operations and method are the same
+                                        if(operations.get(j).getAttributs().size() > 0 && method.getAttributs().size() > 0){
+                                            if(operations.get(j).getAttributs().get(k).getAttributType().equals(method.getAttributs().get(k).getAttributType())){
+                                                numberOfEqualArguments++;
+                                            }
+                                        }
+                                    }
+                                    // both operation and method have same number of argument type
+                                    if (numberOfEqualArguments == method.getAttributs().size()){
+                                        // operations and method have same number of arguments AND are of same type
+                                        if (operations.get(j).getMethodType().equals(method.getMethodType())){
+                                            System.out.println(ANSI_RED + "--- ERROR method " + method.getMethodName() + " already exists in " + classe.getClassName() + " ---" + ANSI_RESET);
+                                            valide = false;
+                                            canAdd = false;
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        if (canAdd)
+                            operations.add(method);
+                    }
                     i+=3;
                 }
             }
@@ -172,8 +245,8 @@ public class Parser {
                 this.classDictionnary.put(classe.getClassName(), classe);
 
             } else {
-                System.out.println("--- ERROR : Class " + classe.getClassName() + " already exists in the UML Diagram. We will simply ignore the doubled class ---");
-                this.fileIsOk = false;
+                System.out.println(ANSI_RED + "--- ERROR : Class " + classe.getClassName() + " already exists in the UML Diagram. We will simply ignore the doubled class ---" + ANSI_RESET);
+                this.valide = false;
             }
         }
         return i;
@@ -260,5 +333,8 @@ public class Parser {
         return i;
     }
 
+    public static void main(String[] args) {
+        Parser p = new Parser("C:\\Users\\Eddy\\Documents\\UdeM\\Automne_2018\\IFT_3913\\TP1\\tp1_ift_3913\\src\\Test\\Ligue.ucd");
+    }
 
 }

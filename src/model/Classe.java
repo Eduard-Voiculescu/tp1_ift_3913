@@ -18,7 +18,10 @@ public class Classe {
     private ArrayList<Relation> relations; // For the RELATIONS
 
     /**
-     * Constructor of Classe
+     * Constructor
+     * @param className (required) : name of classe
+     * @param attributs (required) : ArrayList of attributs
+     * @param methods (required) : ArrayList of methods
      * */
     public Classe(String className, ArrayList<Attribut> attributs, ArrayList<Method> methods) {
         this.className = className;
@@ -30,6 +33,7 @@ public class Classe {
 
     /**
      * Getter of className
+     * @return : name of classe
      * */
     public String getClassName() {
         return className;
@@ -37,6 +41,7 @@ public class Classe {
 
     /**
      * Setter of className
+     * @param className : name of classe
      * */
     public void setClassName(String className) {
         this.className = className;
@@ -44,6 +49,7 @@ public class Classe {
 
     /**
      * Getter of attributs
+     * @return : ArrayList of attributs
      * */
     public ArrayList<Attribut> getAttributs() {
         return attributs;
@@ -51,6 +57,7 @@ public class Classe {
 
     /**
      * Setter of attributs
+     * @param attributs : sets ArrayList of attributs
      * */
     public void setAttributs(ArrayList<Attribut> attributs) {
         this.attributs = attributs;
@@ -58,6 +65,7 @@ public class Classe {
 
     /**
      * Getter of methods
+     * @return : ArrayList of methods
      * */
     public ArrayList<Method> getMethods() {
         return methods;
@@ -65,6 +73,7 @@ public class Classe {
 
     /**
      * Setter of methods
+     * @param methods : sets ArrayList of methods
      * */
     public void setMethods(ArrayList<Method> methods) {
         this.methods = methods;
@@ -72,6 +81,7 @@ public class Classe {
 
     /**
      * Getter of subClasses
+     * @return : ArrayList of sub classes
      * */
     public ArrayList<String> getSubClasses() {
         return subClasses;
@@ -79,11 +89,16 @@ public class Classe {
 
     /**
      * Setter of subClasses
+     * @param subClasses : sets ArayList of sub classes
      * */
     public void setSubClasses(ArrayList<String> subClasses) {
         this.subClasses = subClasses;
     }
 
+    /**
+     * Getter of relations
+     * @return : ArrayList of relations
+     * */
     public ArrayList<Relation> getRelations() {
         return relations;
     }
@@ -94,18 +109,18 @@ public class Classe {
 
     /**
      * Function to add subClass to given subClass array
+     * @param subC : adds subClass to ArrayList of subClasses
      * */
     public void addSubClasse(String subC){
         this.subClasses.add(subC);
     }
 
+    /**
+     * Function to add rel to given relations array
+     * @param rel : adds rel to ArrayList of relations
+     * */
     public void addRelation(Relation rel){
         this.relations.add(rel);
     }
 
-    @Override
-    public String toString() {
-        // TODO: toString() ...
-        return super.toString();
-    }
 }

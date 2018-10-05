@@ -11,7 +11,9 @@ public class Attribut {
     private String attributType;
 
     /**
-     * Constructor of Attribut
+     * Constructor
+     * @param attributName (required) : name of attribut.
+     * @param attributType (required) : type of attribut.
      * */
     public Attribut(String attributName, String attributType) {
         this.attributName = attributName;
@@ -20,6 +22,7 @@ public class Attribut {
 
     /**
      * Getter of attributName
+     * @return : attribut name
      * */
     public String getAttributName() {
         return attributName;
@@ -27,6 +30,7 @@ public class Attribut {
 
     /**
      * Setter of attributName
+     * @param attributName : name of attribut.
      * */
     public void setAttributName(String attributName) {
         this.attributName = attributName;
@@ -34,6 +38,7 @@ public class Attribut {
 
     /**
      * Getter of attributType
+     * @return : attribut type
      * */
     public String getAttributType() {
         return attributType;
@@ -41,6 +46,7 @@ public class Attribut {
 
     /**
      * Setter of attributType
+     * @param attributType : type of attribut.
      * */
     public void setAttributType(String attributType) {
         this.attributType = attributType;
@@ -48,6 +54,7 @@ public class Attribut {
 
     /**
      * Overriding toString() to better fitting in Ui
+     * @return : personalized toString String to better fitting in Ui
      * */
     @Override
     public String toString() {

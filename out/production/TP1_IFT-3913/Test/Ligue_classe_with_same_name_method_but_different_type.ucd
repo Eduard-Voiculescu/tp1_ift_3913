@@ -5,30 +5,15 @@ ATTRIBUTES
 OPERATIONS
       nombre_joueurs() : Integer,
       entraineur() : String,
-      add_joueur(element : Joueur) : void
-;
-
-CLASS Equipe 
-ATTRIBUTES 
-      nom_equipe : String
-OPERATIONS
-      noms_Des_Joueurs() : String,
-      numero_du_entraineur() : Integer,
-      add_joueur(element : Joueur) : void
+      add_joueur(element : Joueur) : void,
+	  add_joueur(element : Joueur) : Integer,
+	  add_joueur(element : Joueur) : String
 ;
 
 CLASS Participant 
 ATTRIBUTES 
-	nom : String
+nom : String
 OPERATIONS 
-;
-
-CLASS Participant 
-ATTRIBUTES 
-	nom : String
-OPERATIONS
-	  coucoutoto() : Integer,
-	  totocoucou() : String
 ;
 
 CLASS Joueur
@@ -37,6 +22,7 @@ ATTRIBUTES
       statut : String
 OPERATIONS 
       nombre_saisons() : Integer,
+	  nombre_saisons() : String,
       change_statut (st : String) : void
 ;
 
@@ -51,7 +37,8 @@ ATTRIBUTES
       nom : String,
       adresse : String
 OPERATIONS 
-      Utilise_par(eq : Equipe, annee : Integer) : Boolean
+      Utilise_par(eq : Equipe, annee : Integer) : Boolean,
+	  Utilise_par(eq : Equipe, annee : Integer) : String
 ;
 
 GENERALIZATION Participant

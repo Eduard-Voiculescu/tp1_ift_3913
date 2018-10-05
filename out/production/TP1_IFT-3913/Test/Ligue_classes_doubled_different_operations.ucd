@@ -19,13 +19,13 @@ OPERATIONS
 
 CLASS Participant 
 ATTRIBUTES 
-nom : String
+	nom : String
 OPERATIONS 
 ;
 
 CLASS Participant 
 ATTRIBUTES 
-nom : String
+	nom : String
 OPERATIONS
 	  coucoutoto() : Integer,
 	  totocoucou() : String
