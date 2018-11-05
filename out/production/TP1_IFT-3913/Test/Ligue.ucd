@@ -1,42 +1,39 @@
 MODEL Ligue
-CLASS Equipe 
-ATTRIBUTES 
-      nom_equipe : String,
-	nom_equipe : Integer
+CLASS Equipe
+ATTRIBUTES
+      nom_equipe : String
 OPERATIONS
       nombre_joueurs() : Integer,
       entraineur() : String,
       add_joueur(element : Joueur) : void
 ;
 
-CLASS Participant 
-ATTRIBUTES 
+CLASS Participant
+ATTRIBUTES
 nom : String
-OPERATIONS 
+OPERATIONS
 ;
 
 CLASS Joueur
-ATTRIBUTES 
+ATTRIBUTES
       saison : Integer,
-	saison : String,
       statut : String
-OPERATIONS 
+OPERATIONS
       nombre_saisons() : Integer,
       change_statut (st : String) : void
 ;
 
 CLASS Entraineur
-ATTRIBUTES 
-      degre : Integer,
-	degre : Boolean
-OPERATIONS 
+ATTRIBUTES
+      degre : Integer
+OPERATIONS
 ;
 
-CLASS Stade 
-ATTRIBUTES 
+CLASS Stade
+ATTRIBUTES
       nom : String,
       adresse : String
-OPERATIONS 
+OPERATIONS
       Utilise_par(eq : Equipe, annee : Integer) : Boolean
 ;
 
@@ -44,20 +41,20 @@ GENERALIZATION Participant
 	SUBCLASSES Joueur, Entraineur
 ;
 
-RELATION est_localisee_a 
+RELATION est_localisee_a
        ROLES
        CLASS Equipe MANY,
        CLASS Stade ONE
 ;
 
-RELATION dirige 
+RELATION dirige
        ROLES
        CLASS Entraineur ONE_OR_MANY,
        CLASS Equipe ONE
 ;
 
-AGGREGATION 
-CONTAINER 
+AGGREGATION
+CONTAINER
        CLASS Equipe ONE
 PARTS
        CLASS Joueur ONE_OR_MANY

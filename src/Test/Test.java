@@ -4,7 +4,9 @@ package Test;
  * Created by Eduard Voiculescu and Sami Steenhaut on 4 october 2018
  */
 
+import model.Classe;
 import model.Parser;
+import metriques.Metriques;
 
 /**
  * PLEASE NOTE: WE ADDED COLOR TO OUR PRINT STATEMENTS. TESTS THAT FAIL WILL PRINT OUT RED AND TESTS
@@ -17,9 +19,11 @@ public class Test {
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_WHITE = "\u001B[37m";
 
     private final static String userDir = System.getProperty("user.dir") + "\\src\\Test\\";
 
+    /* Test Suite for parser */
     private static String pathToLigueNoModel = "Ligue_no_model.ucd";
     private static String pathToLigueDifferentAssignment = "Ligue_different_assignment.ucd";
     private static String pathToLigueAllClassesAreDoubled = "Ligue_all_classes_are_doubled.ucd";
@@ -28,6 +32,11 @@ public class Test {
     private static String pathToLigueClassesWithSameAttributNameButDifferentType = "Ligue_classe_with_same_attribut_name_but_different_type.ucd";
     private static String pathToLigueClassesWithSameOperationsSameAttributsType = "Ligue_classes_with_same_operations_same_attributs_type.ucd";
     private static String pathToLigueClasseWithSameNameMethodButDifferentType = "Ligue_classe_with_same_name_method_but_different_type.ucd";
+
+    /* Test Suite for Metrics */
+    private static String pathToLigue = "Ligue.ucd";
+    private static String pathToLiGueMultipleParentsWithEquipeSameMethodJoueur = "Ligue_multiple_parents_with_equipe_same_method_joueur.ucd";
+    private static String pathToLiGueMultipleParentSameLevel = "Ligue_multiple_parent_same_level.ucd";
 
     /**
      * This function should print out :
@@ -161,8 +170,117 @@ public class Test {
 
     }
 
+    /**
+     * This function tests all the metrics of all the classes in Ligue.ucd (manual entry of good answers)
+     * Here even if all classes are doubled, the parser will ignore them and the metrics will be the same.
+     * @param Ligue : Ligue.ucd file to check metrics
+     * */
+    private static void testLigueMetric(String Ligue){
+        Parser parser = new Parser(userDir + Ligue);
+        Classe entraineur = parser.getClassDictionnary().get("Entraineur");
+        Classe participant = parser.getClassDictionnary().get("Participant");
+        Classe stade = parser.getClassDictionnary().get("Stade");
+        Classe equipe = parser.getClassDictionnary().get("Equipe");
+        Classe joueur = parser.getClassDictionnary().get("Joueur");
+        if (metricTesting(Ligue, entraineur, 0.0, 0, 2, 0, 0, 1, 1, 0, 0, 0)
+                && metricTesting(Ligue, participant, 0.0, 0, 1, 0, 0, 0, 0, 1, 2, 2)
+                && metricTesting(Ligue, stade, 2.0, 1, 2, 1, 0, 1, 0, 0, 0, 0)
+                && metricTesting(Ligue, equipe, 0.3333333333333333, 3, 1, 1, 1, 3, 0, 0, 0, 0)
+                && metricTesting(Ligue, joueur, 0.5, 2, 3, 0, 1, 1, 1, 0, 0, 0)){
+            System.out.println(ANSI_GREEN +  Ligue + " metric -- Passed" + ANSI_RESET);
+        }
+        else {
+            System.out.println(ANSI_RED + Ligue +" metric -- Failed" + ANSI_RESET);
+        }
+    }
+
+    /**
+     * This function tests all the metrics of all the classes in Ligue_multiple_parents.ucd (manual entry of good answers)
+     * @param Ligue : Ligue_multiple_parents.ucd file to check metrics
+     * */
+    private static void testLigueMultipleParentsMetric(String Ligue){
+        Parser parser = new Parser(userDir + Ligue);
+        Classe entraineur = parser.getClassDictionnary().get("Entraineur");
+        Classe participant = parser.getClassDictionnary().get("Participant");
+        Classe stade = parser.getClassDictionnary().get("Stade");
+        Classe equipe = parser.getClassDictionnary().get("Equipe");
+        Classe joueur = parser.getClassDictionnary().get("Joueur");
+        if (metricTesting(Ligue, entraineur, 0.0, 4, 5, 0, 0, 5, 3, 0, 0, 0)
+                && metricTesting(Ligue, participant, 0.0, 4, 4, 0, 0, 4, 2, 1, 2, 2)
+                && metricTesting(Ligue, stade, 2.0, 4, 3, 1, 0, 4, 1, 2, 1, 3)
+                && metricTesting(Ligue, equipe, 0.3333333333333333, 3, 1, 1, 1, 3, 0, 3, 1, 4)
+                && metricTesting(Ligue, joueur, 0.3333333333333333, 6, 6, 0, 1, 5, 3, 0, 0, 0)){
+            System.out.println(ANSI_GREEN +  Ligue + " metric -- Passed" + ANSI_RESET);
+        }
+        else {
+            System.out.println(ANSI_RED + Ligue +" metric -- Failed" + ANSI_RESET);
+        }
+    }
+
+
+    /**
+     * This function tests all the metrics of all the classes in Ligue_multiple_parents.ucd (manual entry of good answers)
+     * @param Ligue : Ligue_multiple_parents.ucd file to check metrics
+     * */
+    private static void testLiGueMultipleParentSameLevelMetric(String Ligue){
+        Parser parser = new Parser(userDir + Ligue);
+        Classe entraineur = parser.getClassDictionnary().get("Entraineur");
+        Classe participant = parser.getClassDictionnary().get("Participant");
+        Classe parent = parser.getClassDictionnary().get("Parent");
+        Classe stade = parser.getClassDictionnary().get("Stade");
+        Classe equipe = parser.getClassDictionnary().get("Equipe");
+        Classe joueur = parser.getClassDictionnary().get("Joueur");
+        if (metricTesting(Ligue, entraineur, 0.0, 4, 5, 0, 0, 5, 3, 0, 0, 0)
+                && metricTesting(Ligue, participant, 0.0, 4, 4, 0, 0, 4, 2, 1, 2, 2)
+                && metricTesting(Ligue, parent, 0.0, 4, 4, 0, 0, 4, 2, 0, 0, 0)
+                && metricTesting(Ligue, stade, 2.0, 4, 3, 1, 0, 4, 1, 2, 2, 4)
+                && metricTesting(Ligue, equipe, 0.3333333333333333, 3, 1, 1, 1, 3, 0, 3, 1, 5)
+                && metricTesting(Ligue, joueur, 0.5, 6, 6, 0, 1, 5, 3, 0, 0, 0)){
+            System.out.println(ANSI_GREEN +  Ligue + " metric -- Passed" + ANSI_RESET);
+        }
+        else {
+            System.out.println(ANSI_RED + Ligue +" metric -- Failed" + ANSI_RESET);
+        }
+    }
+
+    /**
+     * This function is used to test the general metrics (instead of rewriting the same function
+     * over and over again, we wrot a general metric testing.
+     * @param ligueUCDToTest : file to test metrics
+     * @param ci : classe to test metrics on
+     * @param ana : ANA metric
+     * @param nom : NOM metric
+     * @param noa : NOA metric
+     * @param itc : ITC metric
+     * @param etc : ETC metric
+     * @param cac : CAC metric
+     * @param dit : DIT metric
+     * @param cld : CLD metric
+     * @param noc : NOC metric
+     * @param nod : NOD metric
+     * */
+    private static boolean metricTesting(String ligueUCDToTest,
+                                         Classe ci,
+                                         Double ana,
+                                         Integer nom,
+                                         Integer noa,
+                                         Integer itc,
+                                         Integer etc,
+                                         Integer cac,
+                                         Integer dit,
+                                         Integer cld,
+                                         Integer noc,
+                                         Integer nod){
+        Parser parser = new Parser(userDir + ligueUCDToTest);
+        Metriques metriques = new Metriques(parser.getClassDictionnary());
+        return metriques.ANA(ci) == ana && metriques.NOM(ci) == nom && metriques.NOA(ci) == noa && metriques.ITC(ci) == itc
+                && metriques.ETC(ci) == etc && metriques.CAC(ci) == cac && metriques.DIT(ci) == dit
+                && metriques.CLD(ci) == cld && metriques.NOC(ci) == noc && metriques.NOD(ci) == nod;
+    }
 
     public static void main(String[] args) {
+
+        System.out.println(ANSI_WHITE + "------------------------------------------- Parser Test Suite | BEGIN -------------------------------------------" + ANSI_RESET);
         testLigueNoModel(pathToLigueNoModel);
         testLigueDifferentAssignment(pathToLigueDifferentAssignment);
         testLigueAllClassesAreDoubled(pathToLigueAllClassesAreDoubled);
@@ -171,6 +289,20 @@ public class Test {
         testLigueClassesWithSameAttributNameButDifferentType(pathToLigueClassesWithSameAttributNameButDifferentType);
         testLigueClassesWithSameOperationsSameAttributsType(pathToLigueClassesWithSameOperationsSameAttributsType);
         testLigueClasseWithSameNameMethodButDifferentType(pathToLigueClasseWithSameNameMethodButDifferentType);
+        System.out.println(ANSI_WHITE + "-------------------------------------------- Parser Test Suite | END --------------------------------------------" + ANSI_RESET);
+
+        System.out.println();
+
+        System.out.println(ANSI_WHITE + "------------------------------------------- Metric Test Suite | BEGIN -------------------------------------------" + ANSI_RESET);
+        testLigueMetric(pathToLigue);
+        testLigueMultipleParentsMetric(pathToLiGueMultipleParentsWithEquipeSameMethodJoueur);
+        testLiGueMultipleParentSameLevelMetric(pathToLiGueMultipleParentSameLevel);
+        /* Here all classes are doubled the parser will ignore all the doubled classes and the metrics will
+        * be the same as those in Ligue.ucd */
+        testLigueMetric(pathToLigueAllClassesAreDoubled);
+        /* Here classes have the same attribut names but with different type. As this is not allowed, the parser
+         * will ignore those respective attributs and the metrics will be the same as those in Ligue.ucd */
+        testLigueMetric(pathToLigueClassesWithSameAttributNameButDifferentType);
     }
 
 }

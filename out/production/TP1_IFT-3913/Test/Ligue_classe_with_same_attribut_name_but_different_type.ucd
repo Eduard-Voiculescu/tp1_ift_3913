@@ -2,7 +2,7 @@ MODEL Ligue
 CLASS Equipe 
 ATTRIBUTES 
       nom_equipe : String,
-	  nom_equipe : Integer
+	nom_equipe : Integer
 OPERATIONS
       nombre_joueurs() : Integer,
       entraineur() : String,
@@ -18,7 +18,7 @@ OPERATIONS
 CLASS Joueur
 ATTRIBUTES 
       saison : Integer,
-	  saison : String,
+	saison : String,
       statut : String
 OPERATIONS 
       nombre_saisons() : Integer,
@@ -28,7 +28,7 @@ OPERATIONS
 CLASS Entraineur
 ATTRIBUTES 
       degre : Integer,
-	  degre : Boolean
+	degre : Boolean
 OPERATIONS 
 ;
 
