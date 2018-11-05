@@ -7,18 +7,23 @@ package view;
 /* Imports */
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.filechooser.*;
+
+import metriques.Metriques;
 import model.*;
 
 public class Ui {
 
     private static final int FRAME_HEIGHT = 800;
-    private static final int FRAME_WIDTH = 800;
+    private static final int FRAME_WIDTH = 1000;
 
     /* JFileChoser */
     private JFileChooser jFileChooser;
@@ -30,6 +35,7 @@ public class Ui {
     private JList<String> listSubClasses;
     private JList<String> listAssociations_Aggregations;
     private JList<String> listDetails;
+    private JList<String> listMetriques;
 
     /* DefaultListModel */
     private DefaultListModel<String> classes;
@@ -38,9 +44,13 @@ public class Ui {
     private DefaultListModel<String> subClasses;
     private DefaultListModel<String> associations_Aggregations;
     private DefaultListModel<String> details;
+    private DefaultListModel<String> metriques;
 
     /* Parser */
     private Parser parser;
+
+    /* Current class */
+    private String selectedClass = "";
 
     /**
      * Constructor
@@ -54,6 +64,7 @@ public class Ui {
         this.subClasses = new DefaultListModel<>();
         this.associations_Aggregations = new DefaultListModel<>();
         this.details = new DefaultListModel<>();
+        this.metriques = new DefaultListModel<>();
 
         /* Initialiser tout les JList */
         this.listClasses = new JList<String>(this.classes);
@@ -62,6 +73,7 @@ public class Ui {
         this.listSubClasses = new JList<String>(this.subClasses);
         this.listAssociations_Aggregations = new JList<String>(this.associations_Aggregations);
         this.listDetails = new JList<String>(this.details);
+        this.listMetriques = new JList<String>(this.metriques);
 
         /* La selection des nodes dans les listes. Pas toutes les listes on peut selectionner. setEnabled = false
         * so there is no user input possible. */
@@ -86,6 +98,7 @@ public class Ui {
         setJListSize(this.listSubClasses, 7, 20, 300);
         setJListSize(this.listAssociations_Aggregations, 7, 20, 300);
         setJListSize(this.listDetails, 5, 20, 400);
+        setJListSize(this.listMetriques, 20, 20, 100);
 
         /* Frame Initialization */
         JFrame jFrame = new JFrame("UML Parser");
@@ -109,7 +122,7 @@ public class Ui {
         this.listClasses.addMouseListener(new MouseAdapter() { // Add MouseClicked Event
             @Override
             public void mouseClicked(MouseEvent e) {
-                String selectedClass = listClasses.getSelectedValue();
+                selectedClass = listClasses.getSelectedValue();
                 printClassesInformation(selectedClass);
             }
         });
@@ -156,7 +169,7 @@ public class Ui {
         this.listAssociations_Aggregations.addMouseListener(new MouseAdapter() { // Add MouseClicked Event
             @Override
             public void mouseClicked(MouseEvent e) {
-                String selectedClass = listClasses.getSelectedValue();
+                selectedClass = listClasses.getSelectedValue();
                 String selectedRAA = listAssociations_Aggregations.getSelectedValue();
                 printDetails(selectedClass, selectedRAA);
             }
@@ -169,6 +182,14 @@ public class Ui {
         jPanelDetails.setBorder(new TitledBorder(BorderFactory.createTitledBorder(
                 BorderFactory.createEtchedBorder(EtchedBorder.LOWERED)),"Détails"));
         jPanelGridParent.add(jPanelDetails, BorderLayout.SOUTH);
+
+        /* JPanelMetriques */
+        JPanel jPanelMetriques = new JPanel();
+        JScrollPane jScrollPaneMetriques = new JScrollPane(this.listMetriques);
+        jPanelMetriques.add(jScrollPaneMetriques);
+        jPanelMetriques.setBorder(new TitledBorder(BorderFactory.createTitledBorder(
+                BorderFactory.createEtchedBorder(EtchedBorder.LOWERED)),"Métriques"));
+        jPanel.add(jPanelMetriques, BorderLayout.EAST);
 
         /* JPanelChooseFile */
         JPanel jPanelChooseFile = new JPanel();
@@ -200,9 +221,23 @@ public class Ui {
                 printClasses();
             }
         });
+        /* JButton Calculate Metrics */
+        JButton jButtonCalculateMetrics = new JButton("Calculate Metrics");
+        jButtonCalculateMetrics.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    printMetriques(selectedClass);
+                } catch (Exception ex){ // Mostly if NullPointerException occurs ...
+                    ex.printStackTrace();
+                    System.out.println(ex.getMessage());
+                }
+            }
+        });
 
         jPanelChooseFile.add(jButtonLoad, BorderLayout.WEST);
         jPanelChooseFile.add(jTextFieldPath, BorderLayout.CENTER);
+        jPanelChooseFile.add(jButtonCalculateMetrics, BorderLayout.EAST);
         jPanel.add(jPanelChooseFile, BorderLayout.NORTH);
         jPanelGridParent.add(jPanelGrid, BorderLayout.CENTER);
         jPanel.add(jPanelGridParent, BorderLayout.CENTER);
@@ -211,6 +246,35 @@ public class Ui {
         jFrame.getContentPane().add(jPanel);
         jFrame.setVisible(true);
 
+    }
+
+    /**
+     * Method to print all metrics in a .ucd file
+     * */
+    private void printMetriques(String ci) {
+        this.metriques.removeAllElements();
+
+        Classe classe = this.parser.getClassDictionnary().get(ci);
+        Metriques metriques = new Metriques(this.parser.getClassDictionnary());
+        this.metriques.addElement(addElementMetric("ANA", metriques.ANA(classe)));
+        this.metriques.addElement(addElementMetric("NOM", metriques.NOM(classe)));
+        this.metriques.addElement(addElementMetric("NOA", metriques.NOA(classe)));
+        this.metriques.addElement(addElementMetric("ITC", metriques.ITC(classe)));
+        this.metriques.addElement(addElementMetric("ETC", metriques.ETC(classe)));
+        this.metriques.addElement(addElementMetric("CAC", metriques.CAC(classe)));
+        this.metriques.addElement(addElementMetric("DIT", metriques.DIT(classe)));
+        this.metriques.addElement(addElementMetric("CLD", metriques.CLD(classe)));
+        this.metriques.addElement(addElementMetric("NOC", metriques.NOC(classe)));
+        this.metriques.addElement(addElementMetric("NOD", metriques.NOD(classe)));
+    }
+
+    /**
+     * Function to add metric element to metrique DefaultList
+     * @param metric : metric name
+     * @param metricValue : metric value
+     * */
+    private String addElementMetric(String metric, Number metricValue){
+        return MessageFormat.format("{0} = {1}", metric, metricValue);
     }
 
     /**
@@ -284,6 +348,7 @@ public class Ui {
         this.subClasses.removeAllElements();
         this.associations_Aggregations.removeAllElements();
         this.details.removeAllElements();
+        this.metriques.removeAllElements();
 
         try{
             /* Print attributs of respective clicked class in appropriate field. */
@@ -305,7 +370,7 @@ public class Ui {
         try {
             /* Print subClasses of respective clicked class in appropriate field.  */
             for(int i = 0; i < this.parser.getClassDictionnary().get(selectedClass).getSubClasses().size(); i++){
-                this.subClasses.addElement(this.parser.getClassDictionnary().get(selectedClass).getSubClasses().get(i));
+                this.subClasses.addElement(this.parser.getClassDictionnary().get(selectedClass).getSubClasses().get(i).toString());
             }
         } catch (NullPointerException e) {
             System.out.println("There are no subClasses to put in the UI");

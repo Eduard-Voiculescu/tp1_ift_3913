@@ -4,7 +4,6 @@ package model;
  * Created by Eduard Voiculescu and Sami Steenhaut on 4 october 2018
  */
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Classe {
@@ -18,8 +17,9 @@ public class Classe {
     private String className;
     private ArrayList<Attribut> attributs; // For the ATTRIBUTS
     private ArrayList<Method> methods; // For the OPERATIONS
-    private ArrayList<String> subClasses; // For the SUBCLASSES
+    private ArrayList<Classe> subClasses; // For the SUBCLASSES
     private ArrayList<Relation> relations; // For the RELATIONS
+    private ArrayList<Classe> parent; // For the PARENTS
 
     /**
      * Constructor
@@ -31,8 +31,9 @@ public class Classe {
         this.className = className;
         this.attributs = attributs;
         this.methods = methods;
-        this.subClasses = new ArrayList<String>();
+        this.subClasses = new ArrayList<Classe>();
         this.relations = new ArrayList<Relation>();
+        this.parent = new ArrayList<Classe>();
     }
 
     /**
@@ -87,7 +88,7 @@ public class Classe {
      * Getter of subClasses
      * @return : ArrayList of sub classes
      * */
-    public ArrayList<String> getSubClasses() {
+    public ArrayList<Classe> getSubClasses() {
         return subClasses;
     }
 
@@ -95,7 +96,7 @@ public class Classe {
      * Setter of subClasses
      * @param subClasses : sets ArayList of sub classes
      * */
-    public void setSubClasses(ArrayList<String> subClasses) {
+    public void setSubClasses(ArrayList<Classe> subClasses) {
         this.subClasses = subClasses;
     }
 
@@ -107,15 +108,35 @@ public class Classe {
         return relations;
     }
 
+    /**
+     * Setter of relations
+     * @param relations : ArrayList of relations
+     * */
     public void setRelations(ArrayList<Relation> relations) {
         this.relations = relations;
+    }
+
+    /**
+     * Getter of parent
+     * @return : returns ArrayList of parent classes
+     * */
+    public ArrayList<Classe> getParent() {
+        return parent;
+    }
+
+    /**
+     * Setter of parent
+     * @param parent : ArrayList of parent
+     * */
+    public void setParent(ArrayList<Classe> parent) {
+        this.parent = parent;
     }
 
     /**
      * Function to add subClass to given subClass array
      * @param subC : adds subClass to ArrayList of subClasses
      * */
-    public void addSubClasse(String subC){
+    public void addSubClasse(Classe subC){
         this.subClasses.add(subC);
     }
 
@@ -127,4 +148,16 @@ public class Classe {
         this.relations.add(rel);
     }
 
+    /**
+     * Function to add parent to given class array
+     * @param parent : parent Classe to add
+     * */
+    public void addParent(Classe parent){
+        this.parent.add(parent);
+    }
+
+    @Override
+    public String toString() {
+        return this.className;
+    }
 }

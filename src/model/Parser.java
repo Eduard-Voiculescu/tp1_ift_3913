@@ -36,7 +36,7 @@ public class Parser {
 
 
     /* Dictionary containing all classes */
-    private Map<String, Classe> classDictionnary;
+    private HashMap<String, Classe> classDictionnary;
 
     /* FilePath to .ucd file */
     private String filePath;
@@ -66,9 +66,9 @@ public class Parser {
 
     /**
      * Getter du dictionnaire de classe
-     * @return : Map<String, Classe> of classDictionnary
+     * @return : HashMap<String, Classe> of classDictionnary
      * */
-    public Map<String, Classe> getClassDictionnary() {
+    public HashMap<String, Classe> getClassDictionnary() {
         return classDictionnary;
     }
 
@@ -278,7 +278,8 @@ public class Parser {
         }
 
         for (String subClass : subClasses) {
-            this.getClassDictionnary().get(motherClass).addSubClasse(subClass);
+            this.getClassDictionnary().get(motherClass).addSubClasse(this.getClassDictionnary().get(subClass));
+            this.getClassDictionnary().get(subClass).addParent(this.getClassDictionnary().get(motherClass));
         }
         return i;
     }

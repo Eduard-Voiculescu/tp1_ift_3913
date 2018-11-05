@@ -64,4 +64,20 @@ public class Attribut {
     public String toString() {
         return getAttributName() + " : " + getAttributType();
     }
+
+    /**
+     * Overriding equals to compare 2 attributs
+     * @param obj : Object obj to compare with
+     * @return boolean
+     * */
+    @Override
+    public boolean equals(Object obj) {
+        if(!(obj instanceof Attribut)){
+            return false;
+        }
+        Attribut attributAComparer = (Attribut) obj;
+
+        return this.attributName.equals(attributAComparer.getAttributName())
+                && this.attributType.equals(attributAComparer.getAttributType());
+    }
 }

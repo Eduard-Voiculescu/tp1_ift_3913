@@ -4,7 +4,10 @@ package model;
  * Created by Eduard Voiculescu and Sami Steenhaut on 4 october 2018
  */
 
+import javax.swing.*;
 import java.util.ArrayList;
+import java.util.FormatFlagsConversionMismatchException;
+import java.util.Optional;
 
 public class Method {
 
@@ -108,4 +111,30 @@ public class Method {
         return value;
     }
 
+    /**
+     * Overriding equals to compare 2 methods (with their respective attributs)
+     * @param obj : Object obj to compare with
+     * @return boolean
+     * */
+    @Override
+    public boolean equals(Object obj) {
+        if(!(obj instanceof Method)){
+            return false;
+        }
+        Method methodeAComparer = (Method) obj;
+
+        if(this.methodName.equals(methodeAComparer.getMethodName())
+                && (this.methodType.equals(methodeAComparer.getMethodType()))
+                && (this.attributs.size() == methodeAComparer.getAttributs().size())){
+            /* We look if every attribut is in attributs list (by using contains() which will call
+             * our overridden equals of attributs */
+            for (Attribut attribut : methodeAComparer.getAttributs()){
+                if(!(this.attributs.contains(attribut))){
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
 }
