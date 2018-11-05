@@ -7,8 +7,6 @@ package view;
 /* Imports */
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.MessageFormat;
@@ -97,7 +95,7 @@ public class Ui {
         setJListSize(this.listMethods, 7, 20, 300);
         setJListSize(this.listSubClasses, 7, 20, 300);
         setJListSize(this.listAssociations_Aggregations, 7, 20, 300);
-        setJListSize(this.listDetails, 5, 20, 400);
+        setJListSize(this.listDetails, 5, 20, 600);
         setJListSize(this.listMetriques, 20, 20, 100);
 
         /* Frame Initialization */
@@ -171,13 +169,13 @@ public class Ui {
             public void mouseClicked(MouseEvent e) {
                 selectedClass = listClasses.getSelectedValue();
                 String selectedRAA = listAssociations_Aggregations.getSelectedValue();
-                printDetails(selectedClass, selectedRAA);
+                printClassDetails(selectedClass, selectedRAA);
             }
         });
 
         /* JPanelDetails */
         JPanel jPanelDetails = new JPanel();
-        JScrollPane jScrollPaneDetails = new JScrollPane(this.listDetails);
+        JScrollPane jScrollPaneDetails = new JScrollPane(this.listDetails, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         jPanelDetails.add(jScrollPaneDetails);
         jPanelDetails.setBorder(new TitledBorder(BorderFactory.createTitledBorder(
                 BorderFactory.createEtchedBorder(EtchedBorder.LOWERED)),"Détails"));
@@ -190,6 +188,16 @@ public class Ui {
         jPanelMetriques.setBorder(new TitledBorder(BorderFactory.createTitledBorder(
                 BorderFactory.createEtchedBorder(EtchedBorder.LOWERED)),"Métriques"));
         jPanel.add(jPanelMetriques, BorderLayout.EAST);
+        this.listMetriques.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                try {
+                    printMetriquesDetails(listMetriques.getSelectedValue().substring(0, 3));
+                } catch (NullPointerException nullPointerException){
+                    // Do nothing ...
+                }
+            }
+        });
 
         /* JPanelChooseFile */
         JPanel jPanelChooseFile = new JPanel();
@@ -223,15 +231,12 @@ public class Ui {
         });
         /* JButton Calculate Metrics */
         JButton jButtonCalculateMetrics = new JButton("Calculate Metrics");
-        jButtonCalculateMetrics.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    printMetriques(selectedClass);
-                } catch (Exception ex){ // Mostly if NullPointerException occurs ...
-                    ex.printStackTrace();
-                    System.out.println(ex.getMessage());
-                }
+        jButtonCalculateMetrics.addActionListener(e -> {
+            try {
+                printMetriques(selectedClass);
+            } catch (Exception ex){ // Mostly if NullPointerException occurs ...
+                ex.printStackTrace();
+                System.out.println(ex.getMessage());
             }
         });
 
@@ -278,6 +283,18 @@ public class Ui {
     }
 
     /**
+     * Method to print details once a metric is clicked on.
+     * @param metriqueName : Name or metric
+     * */
+    private void printMetriquesDetails (String metriqueName){
+        /* Clean the list so if user presses on another metric respective info is displayed */
+        this.details.removeAllElements();
+        Metriques metriques = new Metriques(this.parser.getClassDictionnary());
+        String metricDetail = metriques.getDetails().get(metriqueName);
+        this.details.addElement(metricDetail);
+    }
+
+    /**
      * Method to print all classes in a .ucd file
      * */
     private void printClasses() {
@@ -299,7 +316,7 @@ public class Ui {
      * @param selectedClass : selectedClass String
      * @param selectedRAA : selectedRAA (relations or associations and aggregations) String
      * */
-    private void printDetails(String selectedClass, String selectedRAA){
+    private void printClassDetails(String selectedClass, String selectedRAA){
 
         /* Clean the list so if user presses on another Relation or Association and Aggregation respective info is displayed */
         this.details.removeAllElements();
