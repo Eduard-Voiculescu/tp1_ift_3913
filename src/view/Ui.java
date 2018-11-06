@@ -5,18 +5,24 @@ package view;
  */
 
 /* Imports */
+import metriques.CsvGenerator;
+import metriques.Metriques;
+import model.Classe;
+import model.Parser;
+import model.Relation;
+
 import javax.swing.*;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.filechooser.FileSystemView;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.MessageFormat;
 import java.util.ArrayList;
-import javax.swing.border.EtchedBorder;
-import javax.swing.border.TitledBorder;
-import javax.swing.filechooser.*;
-
-import metriques.Metriques;
-import model.*;
 
 public class Ui {
 
@@ -111,12 +117,14 @@ public class Ui {
         jPanel.setSize(FRAME_WIDTH, FRAME_HEIGHT);
 
         /* JPanelClass */
+        JPanel jPanelClassParent = new JPanel();
         JPanel jPanelClass = new JPanel();
         JScrollPane jScrollPaneClass = new JScrollPane(this.listClasses);
         jPanelClass.add(jScrollPaneClass);
         jPanelClass.setBorder(new TitledBorder(BorderFactory.createTitledBorder(
                 BorderFactory.createEtchedBorder(EtchedBorder.LOWERED)),"Classes"));
-        jPanel.add(jPanelClass, BorderLayout.WEST);
+        jPanelClassParent.add(jPanelClass);
+        jPanel.add(jPanelClassParent, BorderLayout.WEST);
         this.listClasses.addMouseListener(new MouseAdapter() { // Add MouseClicked Event
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -182,12 +190,12 @@ public class Ui {
         jPanelGridParent.add(jPanelDetails, BorderLayout.SOUTH);
 
         /* JPanelMetriques */
-        JPanel jPanelMetriques = new JPanel();
+        JPanel jPanelMetriques = new JPanel(new BorderLayout());
         JScrollPane jScrollPaneMetriques = new JScrollPane(this.listMetriques);
-        jPanelMetriques.add(jScrollPaneMetriques);
+        jPanelMetriques.add(jScrollPaneMetriques, BorderLayout.NORTH);
         jPanelMetriques.setBorder(new TitledBorder(BorderFactory.createTitledBorder(
                 BorderFactory.createEtchedBorder(EtchedBorder.LOWERED)),"Métriques"));
-        jPanel.add(jPanelMetriques, BorderLayout.EAST);
+
         this.listMetriques.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -198,6 +206,25 @@ public class Ui {
                 }
             }
         });
+
+        /* JButton CSV generator */
+        JButton jButtonCsv = new JButton("CSV File");
+        jButtonCsv.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    System.out.println("CSV File will be created on user's Desktop. ");
+                    CsvGenerator csvGenerator = new CsvGenerator(parser.getClassDictionnary());
+                    csvGenerator.generateCSV(parser.getClassDictionnary());
+                    csvGenerator.writeAllDataToCSV();
+                } catch (Exception exc){
+                    exc.printStackTrace();
+                    System.out.println(exc.getMessage());
+                }
+            }
+        });
+        jPanelMetriques.add(jButtonCsv, BorderLayout.SOUTH);
+        jPanel.add(jPanelMetriques, BorderLayout.EAST);
 
         /* JPanelChooseFile */
         JPanel jPanelChooseFile = new JPanel();
@@ -229,6 +256,7 @@ public class Ui {
                 printClasses();
             }
         });
+
         /* JButton Calculate Metrics */
         JButton jButtonCalculateMetrics = new JButton("Calculate Metrics");
         jButtonCalculateMetrics.addActionListener(e -> {

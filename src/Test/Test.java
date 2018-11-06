@@ -297,9 +297,11 @@ public class Test {
         testLigueMetric(pathToLigue);
         testLigueMultipleParentsMetric(pathToLiGueMultipleParentsWithEquipeSameMethodJoueur);
         testLiGueMultipleParentSameLevelMetric(pathToLiGueMultipleParentSameLevel);
+
         /* Here all classes are doubled the parser will ignore all the doubled classes and the metrics will
         * be the same as those in Ligue.ucd */
         testLigueMetric(pathToLigueAllClassesAreDoubled);
+
         /* Here classes have the same attribut names but with different type. As this is not allowed, the parser
          * will ignore those respective attributs and the metrics will be the same as those in Ligue.ucd */
         testLigueMetric(pathToLigueClassesWithSameAttributNameButDifferentType);
