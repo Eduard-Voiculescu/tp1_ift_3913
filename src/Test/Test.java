@@ -21,7 +21,7 @@ public class Test {
     public static final String ANSI_GREEN = "\u001B[32m";
     public static final String ANSI_WHITE = "\u001B[37m";
 
-    private final static String userDir = System.getProperty("user.dir") + "\\src\\Test\\";
+    private final static String userDir = System.getProperty("user.dir") + "/src/Test/";
 
     /* Test Suite for parser */
     private static String pathToLigueNoModel = "Ligue_no_model.ucd";
@@ -37,6 +37,11 @@ public class Test {
     private static String pathToLigue = "Ligue.ucd";
     private static String pathToLiGueMultipleParentsWithEquipeSameMethodJoueur = "Ligue_multiple_parents_with_equipe_same_method_joueur.ucd";
     private static String pathToLiGueMultipleParentSameLevel = "Ligue_multiple_parent_same_level.ucd";
+    private static String pathToModelANATestMetric = "Model_ANA_Test_Metric.ucd";
+    private static String pathToModelNOMTestMetric = "Model_NOM_Test_Metric.ucd";
+    private static String pathToModelNOATestMetric = "Model_NOA_Test_Metric.ucd";
+    private static String pathToModelITCTestMetric = "Model_ITC_Test_Metric.ucd";
+    private static String pathToModelETCTestMetric = "Model_ETC_Test_Metric.ucd";
 
     /**
      * This function should print out :
@@ -278,6 +283,141 @@ public class Test {
                 && metriques.CLD(ci) == cld && metriques.NOC(ci) == noc && metriques.NOD(ci) == nod;
     }
 
+    /**
+     * This function will test if a given Classe ci has the good ANA metric value.
+     * @param pathToModelANATestMetric : Metric file to check ANA metric
+     * @param ci : String name of class to calculate metric
+     * @param ana : Double
+     * */
+    private static void anaMetricTesting(String pathToModelANATestMetric, String ci, Double ana){
+        Parser parser = new Parser(userDir + pathToModelANATestMetric);
+        Metriques metriques = new Metriques(parser.getClassDictionnary());
+        if (metriques.ANA(parser.getClassDictionnary().get(ci)) == ana) {
+            System.out.println(ANSI_GREEN +  pathToModelANATestMetric + " metric -- Passed -- Expected ANA Metric value " +
+                    "to be " + ana + " and we calculated " + metriques.ANA(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
+        } else {
+            System.out.println(ANSI_RED +  pathToModelANATestMetric + " metric -- Failed -- Expected ANA Metric value " +
+                    "to be " + ana + " and we calculated " + metriques.ANA(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
+        }
+    }
+
+    /**
+     * This function will test if a given Classe ci has the good NOM metric value.
+     * @param pathToModelNOMTestMetric : Metric file to check NOM metric
+     * @param ci : String name of class to calculate metric
+     * @param nom : Integer
+     * */
+    private static void nomMetricTesting(String pathToModelNOMTestMetric, String ci,Integer nom){
+        Parser parser = new Parser(userDir + pathToModelNOMTestMetric);
+        Metriques metriques = new Metriques(parser.getClassDictionnary());
+        if (metriques.NOM(parser.getClassDictionnary().get(ci)) == nom) {
+            System.out.println(ANSI_GREEN +  pathToModelANATestMetric + " metric -- Passed -- Expected NOM Metric value " +
+                    "to be " + nom + " and we calculated " + metriques.NOM(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
+        } else {
+            System.out.println(ANSI_RED +  pathToModelANATestMetric + " metric -- Passed -- Expected NOM Metric value " +
+                    "to be " + nom + " and we calculated " + metriques.NOM(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
+        }
+    }
+
+    /**
+     * This function will test if a given Classe ci has the good NOA metric value.
+     * @param pathToModelNOATestMetric : Metric file to check NOA metric
+     * @param ci : String name of class to calculate metric
+     * @param noa : Integer
+     * */
+    private static void noaMetricTesting(String pathToModelNOATestMetric, String ci, Integer noa){
+        Parser parser = new Parser(userDir + pathToModelNOATestMetric);
+        Metriques metriques = new Metriques(parser.getClassDictionnary());
+        if (metriques.NOA(parser.getClassDictionnary().get(ci)) == noa) {
+            System.out.println(ANSI_GREEN +  pathToModelNOATestMetric + " metric -- Passed -- Expected NOA Metric value " +
+                    "to be " + noa + " and we calculated " + metriques.NOA(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
+        } else {
+            System.out.println(ANSI_RED+  pathToModelNOATestMetric + " metric -- Passed -- Expected NOA Metric value " +
+                    "to be " + noa + " and we calculated " + metriques.NOA(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
+        }
+    }
+
+    /**
+     * This function will test if a given Classe ci has the good ITC metric value.
+     * @param pathToModelITCTestMetric : Metric file to check ITC metric
+     * @param ci : String name of class to calculate metric
+     * @param itc : Integer
+     * */
+    private static void itcMetricTesting(String pathToModelITCTestMetric, String ci, Integer itc){
+        Parser parser = new Parser(userDir + pathToModelITCTestMetric);
+        Metriques metriques = new Metriques(parser.getClassDictionnary());
+        if (metriques.ITC(parser.getClassDictionnary().get(ci)) == itc) {
+            System.out.println(ANSI_GREEN +  pathToModelITCTestMetric + " metric -- Passed -- Expected ITC Metric value " +
+                    "to be " + itc + " and we calculated " + metriques.ITC(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
+        } else {
+            System.out.println(ANSI_RED+  pathToModelITCTestMetric + " metric -- Passed -- Expected ITC Metric value " +
+                    "to be " + itc + " and we calculated " + metriques.ITC(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
+        }
+    }
+
+    /**
+     * This function will test if a given Classe ci has the good ETC metric value.
+     * @param pathToModelETCTestMetric : Metric file to check ETC metric
+     * @param ci : String name of class to calculate metric
+     * @param etc : Integer
+     * */
+    private static void etcMetricTesting(String pathToModelETCTestMetric, String ci, Integer etc){
+        Parser parser = new Parser(userDir + pathToModelETCTestMetric);
+        Metriques metriques = new Metriques(parser.getClassDictionnary());
+        if (metriques.ETC(parser.getClassDictionnary().get(ci)) == etc) {
+            System.out.println(ANSI_GREEN +  pathToModelETCTestMetric + " metric -- Passed -- Expected ETC Metric value " +
+                    "to be " + etc + " and we calculated " + metriques.ETC(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
+        } else {
+            System.out.println(ANSI_RED+  pathToModelETCTestMetric + " metric -- Passed -- Expected ETC Metric value " +
+                    "to be " + etc + " and we calculated " + metriques.ETC(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
+        }
+    }
+
+    /**
+     * This function will test if a given Classe ci has the good CAC metric value.
+     * @param ligueMetric : Metric file to check CAC metric
+     * @param cac : Integer
+     * */
+    private static void cacMetricTesting(String ligueMetric, Classe ci, Integer cac){
+
+    }
+
+    /**
+     * This function will test if a given Classe ci has the good DIT metric value.
+     * @param ligueMetric : Metric file to check DIT metric
+     * @param dit : Integer
+     * */
+    private static void ditMetricTesting(String ligueMetric, Classe ci, Integer dit){
+
+    }
+
+    /**
+     * This function will test if a given Classe ci has the good CLD metric value.
+     * @param ligueMetric : Metric file to check CLD metric
+     * @param cld : Integer
+     * */
+    private static void cldMetricTesting(String ligueMetric, Classe ci, Integer cld){
+
+    }
+
+    /**
+     * This function will test if a given Classe ci has the good NOC metric value.
+     * @param ligueMetric : Metric file to check NOC metric
+     * @param noc : Integer
+     * */
+    private static void nocMetricTesting(String ligueMetric, Classe ci, Integer noc){
+
+    }
+
+    /**
+     * This function will test if a given Classe ci has the good NOD metric value.
+     * @param ligueMetric : Metric file to check NOD metric
+     * @param nod : Integer
+     * */
+    private static void nodMetricTesting(String ligueMetric, Classe ci, Integer nod){
+
+    }
+
     public static void main(String[] args) {
 
         System.out.println(ANSI_WHITE + "------------------------------------------- Parser Test Suite | BEGIN -------------------------------------------" + ANSI_RESET);
@@ -305,6 +445,18 @@ public class Test {
         /* Here classes have the same attribut names but with different type. As this is not allowed, the parser
          * will ignore those respective attributs and the metrics will be the same as those in Ligue.ucd */
         testLigueMetric(pathToLigueClassesWithSameAttributNameButDifferentType);
+
+        /* Here we will do one test for every metric */
+        anaMetricTesting(pathToModelANATestMetric, "ANATesting", 2.5);
+        nomMetricTesting(pathToModelNOMTestMetric, "NOMTesting2", 2);
+        noaMetricTesting(pathToModelNOATestMetric, "NOATesting1", 3);
+        noaMetricTesting(pathToModelNOATestMetric, "NOATesting2", 6);
+        itcMetricTesting(pathToModelITCTestMetric, "ITCTesting1", 2);
+        itcMetricTesting(pathToModelITCTestMetric, "ITCTesting2", 0);
+        etcMetricTesting(pathToModelETCTestMetric, "ETCTesting1", 0);
+        etcMetricTesting(pathToModelETCTestMetric, "ETCTesting2", 2);
+
+        System.out.println(ANSI_WHITE + "-------------------------------------------- Metric Test Suite | END --------------------------------------------" + ANSI_RESET);
     }
 
 }

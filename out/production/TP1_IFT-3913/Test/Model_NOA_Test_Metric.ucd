@@ -1,0 +1,20 @@
+MODEL Model_NOA
+CLASS NOATesting1
+ATTRIBUTES
+	attribut1 : String,
+	attribut2 : Integer,
+	attribut3 : Boolean,
+OPERATIONS
+;
+
+CLASS NOATesting2
+ATTRIBUTES
+	attribut1 : String,
+	attribut2 : Integer,
+	attribut3 : Boolean,
+OPERATIONS
+;
+
+GENERALIZATION NOATesting1
+	SUBCLASSES NOATesting2
+;

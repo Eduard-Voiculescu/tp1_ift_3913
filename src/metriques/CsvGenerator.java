@@ -60,7 +60,7 @@ public class CsvGenerator {
     public CsvGenerator(HashMap<String, Classe> classDictionary) throws IOException{
         this.csv = new ArrayList<String[]>();
         this.classDictionary = classDictionary;
-        this.filePath = HOME_DIRECTORY + "\\Desktop\\CSV_Class_Diagram.csv";
+        this.filePath = HOME_DIRECTORY + "/Desktop/CSV_Class_Diagram.csv";
         this.csvFile = new File(this.filePath);
         this.outputFile = new FileWriter(this.csvFile);
         this.csvWriter = new CSVWriter(this.outputFile);

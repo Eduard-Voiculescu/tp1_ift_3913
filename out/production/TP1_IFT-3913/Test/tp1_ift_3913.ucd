@@ -1,0 +1,194 @@
+MODEL tp1_ift_3913
+CLASS Ui
+ATTRIBUTES
+	FRAME_HEIGHT : Integer, 
+	FRAME_WIDTH : Integer,
+	jFileChooser : JFileChooser,
+	listClasses : JList<String>,
+	listAttributs : JList<String>,
+	listMethods : JList<String>,
+	listSubClasses : JList<String>,
+	listAssociations_Aggregations : JList<String>,
+	listDetails : JList<String>,
+	listMetriques : JList<String>,
+	classes : DefaultListModel<String>,
+	attributs : DefaultListModel<String>,
+	methods : DefaultListModel<String>,
+	subClasses : DefaultListModel<String>,
+	associations_Aggregations : DefaultListModel<String>,
+	details : DefaultListModel<String>,
+	metriques : DefaultListModel<String>,
+	parser : Parser,
+	selectedClasse : String,
+OPERATIONS
+	initializeUi() : void,
+	printMetriques(ci : String) : void,
+	addElementMetric(metric : String, metricValue : Number) : String,
+	printMetriquesDetails(metriqueName : String) : void,
+	printClasses() : void,
+	printClassDetails(selectedClass : String, selectedRAA : String) : void,
+	printClassesInformation(selectedClass : String) : void,
+	setJListSize(jList : JList, rowCount : Integer, cellHeight : Integer, cellWidth : Integer) : void
+;
+
+CLASS Attribut
+ATTRIBUTES
+	attributName : String,
+	attributType : String
+OPERATIONS
+	getAttributName() : String,
+	setAttributName(attributName : String) : void,
+	getAttributType() : String,
+	setAttributType(attributType : String) : void,
+	toString() : String,
+	equals(obj : Object) : boolean
+;
+
+CLASS Classe
+ATTRIBUTES
+	className : String,
+	attributs : ArrayList<Attribut>,
+	methods : ArrayList<Method>,
+	subClasses : ArrayList<Classe>,
+	relations : ArrayList<Relation>,
+	parent : ArrayList<Classe>
+OPERATIONS
+	getClassName() : String,
+	setClassName(className : String) : void,
+	getAttributs() : ArrayList<Attribut>,
+	setAttributs(attributs : ArrayList<Attribut>) : void,
+	getMethods() : ArrayList<Method>,
+	setMethods(methods : ArrayList<Method>) : void,
+	getSubClasses() : ArrayList<Classe>,
+	setSubClasses(subClasses : ArrayList<Classe>) : void,
+	getRelations() : ArrayList<Relation>,
+	setRelations(relations : ArrayList<Relation>) : void,
+	getParent() : ArrayList<Classe>,
+	setParent(parent : ArrayList<Classe>) : void,
+	addSubClasse(subC : Classe) : void,
+	addRelation(rel : Relation) : void,
+	addParent(parent : Classe) : void,
+	toString() : String
+;
+
+CLASS Method
+ATTRIBUTES
+	methodName : String,
+	methodType : String,
+	attributs : ArrayList<Attribut>
+OPERATIONS
+	getMethodName() : String,
+	setMethodName(methodName : String) : void,
+	getMethodType() : String,
+	setMethodType(methodType : String) : void,
+	getAttributs() : ArrayList<Attribut>,
+	setAttributs(attributs : ArrayList<Attribut>) : void,
+	addArgument(attributs : Attribut) : void,
+	toString() : String,
+	equals(obj : Object) : boolean
+;
+
+CLASS Relation 
+ATTRIBUTES
+	relationName : String,
+	relationDetails : String
+OPERATIONS
+	getRelationName() : String,
+	setRelationName(relationName : String) : void,
+	getRelationDetails() : String,
+	setRelationDetails(relationDetails : String) : void,
+	toString() : String
+;
+
+CLASS Parser
+ATTRIBUTES
+	ANSI_RESET : String,
+	ANSI_RED : String,
+	ANSI_GREEN : String,
+	classDictionnary : HashMap<String.Classe>,
+	filePath : String,
+	fileContent : ArrayList<String>,
+	valide : boolean
+OPERATIONS
+	getClassDictionnary() : HashMap<String.Classe>,
+	readFile(filePath : String) : void,
+	parseFile(content : ArrayList<String>) : void,
+	parseClass(i : int, content : ArrayList<String>) : int,
+	parseGeneralization(i : int, content : ArrayList<String>) : int,
+	parseRelation(i : int, content : ArrayList<String>) : int,
+	parseAggregation(i : int, content : ArrayList<String>) : int
+;
+
+CLASS Metriques
+ATTRIBUTES
+	classes : HashMap<String.Classe>,
+	details : HashMap<String.String>,
+	detailsMetriques : String[]
+OPERATIONS
+	getClasses() : HashMap<String.Classe>,
+	setClasses(classes : HashMap<String.Classe>) : void,
+	getDetails() : HashMap<String.String>,
+	setDetails(details : HashMap<String.String>) : void,
+	getDetailsMetriques() : String[],
+	setDetailsMetriques(detailsMetriques : String[]) : void,
+	ANA(ci : Classe) : double,
+	NOM(ci : Classe) : Integer,
+	NOM(ci : Classe, methods : ArrayList<Method>) : Integer,
+	NOA(ci : Classe) : Integer,
+	ITC(ci : Classe) : Integer,
+	ETC(ci : Classe) : Integer,
+	CAC(ci : Classe) : Integer,
+	DIT(ci : Classe) : Integer,
+	CLD(ci : Classe) : Integer,
+	NOC(ci : Classe) : Integer,
+	NOD(ci : Classe) : Integer,
+;
+
+CLASS CsvGenerator
+ATTRIBUTES
+	HOME_DIRECTORY : String,
+	csv : List<String[]>,
+	headers : String[],
+	classDictionary : HashMap<String.Classe>,
+	outputFile : FileWriter,
+	filePath : String,
+	csvFile : File,
+	csvWriter : CSVWriter,
+	metriques : Metriques
+OPERATIONS
+	generateCSV(classDictionary : HashMap<String.Classe>) : void,
+	calculateMetrique(classDictionary : HashMap<String.Classe>) : List<String[]>,
+	writeAllDataToCSV() : void
+;
+
+CLASS Test 
+ATTRIBUTES
+	ANSI_RESET : String,
+	ANSI_RED : String,
+	ANSI_GREEN : String,
+	ANSI_WHITE : String
+	pathToLigueNoModel : String,
+	pathToLigueDifferentAssignment : String,
+	pathToLigueAllClassesAreDoubled : String,
+	pathToLigueClassesDoubledDifferentAttributs : String,
+	pathToLigueClassesDoubledDifferentOperations : String,
+	pathToLigueClassesWithSameAttributNameButDifferentType : String,
+	pathToLigueClassesWithSameOperationsSameAttributsType : String,
+	pathToLigueClasseWithSameNameMethodButDifferentType : String,
+	pathToLigue : String,
+	pathToLiGueMultipleParentsWithEquipeSameMethodJoueur : String, 
+	pathToLiGueMultipleParentSameLevel : String,
+OPERATIONS
+	testLigueNoModel(pathToLigueNoModel : String) : void,
+	testLigueDifferentAssignment(pathToLigueDifferentAssignment : String) : void,
+	testLigueAllClassesAreDoubled(pathToLigueAllClassesAreDoubled : String) : void,
+	testLigueClassesDoubledDifferentAttributs(pathToLigueClassesDoubledDifferentAttributs : String) : void,
+	testLigueClassesDoubledDifferentOperations(pathToLigueClassesDoubledDifferentOperations : String) : void,
+	testLigueClassesWithSameAttributNameButDifferentType(pathToLigueClassesWithSameAttributNameButDifferentType : String) : void,
+	testLigueClassesWithSameOperationsSameAttributsType(LigueClassesWithSameOperationsSameAttributsType : String) : void,
+	testLigueClasseWithSameNameMethodButDifferentType(LigueClasseWithSameNameMethodButDifferentType : String) : void,
+	testLigueMetric(Ligue : String) : void,
+	testLigueMultipleParentsMetric(Ligue : String) : void,
+	testLiGueMultipleParentSameLevelMetric(Ligue : String) : void,
+	metricTesting(ligueUCDToTest : String, ci : Classe, ana : Double, nom : Integer, noa : Integer, itc : Integer, etc : Integer, cac : Integer, dit : Integer, cld : Integer, noc : Integer, nod : Integer) : boolean,
+;

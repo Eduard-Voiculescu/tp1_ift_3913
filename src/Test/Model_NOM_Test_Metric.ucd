@@ -1,0 +1,18 @@
+MODEL Model_NOM
+CLASS NOMTesting1
+ATTRIBUTES
+OPERATIONS
+	methode1(attribut1 : String) : void,
+	methode2(attribut1 : String, attribut2 : String) : void
+;
+
+CLASS NOMTesting2
+ATTRIBUTES
+OPERATIONS
+	methode1(attribut1 : String) : void,
+	methode2(attribut1 : String, attribut2 : String) : void
+;
+
+GENERALIZATION NOMTesting1
+	SUBCLASSES NOMTesting2
+;

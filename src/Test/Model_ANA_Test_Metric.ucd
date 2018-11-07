@@ -1,0 +1,9 @@
+MODEL Model_ANA
+CLASS ANATesting
+ATTRIBUTES
+OPERATIONS
+	methode1(attribut1 : String) : void,
+	methode2(attribut1 : String, attribut2 : String) : void,
+	methode3(attribut1 : String, attribut2 : String, attribut3 : String) : void,
+	methode4(attribut1 : String, attribut2 : String, attribut3 : String, attribut4 : String) : void
+;

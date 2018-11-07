@@ -1,0 +1,14 @@
+MODEL Model_ETC
+CLASS ETCTesting1
+ATTRIBUTES
+OPERATIONS
+	methode1(attribut1 : ETCTesting2) : void,
+	methode2(attribut1 : ETCTesting2) : void
+;
+
+CLASS ETCTesting2
+ATTRIBUTES
+OPERATIONS
+	methode1(attribut1 : String) : void,
+	methode2(attribut1 : String) : void
+;

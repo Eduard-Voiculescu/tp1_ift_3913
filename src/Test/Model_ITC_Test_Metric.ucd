@@ -1,0 +1,18 @@
+MODEL Model_ITC
+CLASS ITCTesting1
+ATTRIBUTES
+OPERATIONS
+	methode1(attribut1 : ITCTesting2) : void,
+	methode2(attribut1 : ITCTesting2, attribut2 : String) : void
+;
+
+CLASS ITCTesting2
+ATTRIBUTES
+OPERATIONS
+	methode1(attribut1 : String) : void,
+	methode2(attribut1 : String, attribut2 : String) : void
+;
+
+GENERALIZATION ITCTesting1
+	SUBCLASSES ITCTesting2
+;
