@@ -42,6 +42,11 @@ public class Test {
     private static String pathToModelNOATestMetric = "Model_NOA_Test_Metric.ucd";
     private static String pathToModelITCTestMetric = "Model_ITC_Test_Metric.ucd";
     private static String pathToModelETCTestMetric = "Model_ETC_Test_Metric.ucd";
+    private static String pathToModelCACTestMetric = "Model_CAC_Test_Metric.ucd";
+    private static String pathToModelDITTestMetric = "Model_DIT_Test_Metric.ucd";
+    private static String pathToModelCLDTestMetric = "Model_CLD_Test_Metric.ucd";
+    private static String pathToModelNOCTestMetric = "Model_NOC_Test_Metric.ucd";
+    private static String pathToModelNODTestMetric = "Model_NOD_Test_Metric.ucd";
 
     /**
      * This function should print out :
@@ -293,10 +298,10 @@ public class Test {
         Parser parser = new Parser(userDir + pathToModelANATestMetric);
         Metriques metriques = new Metriques(parser.getClassDictionnary());
         if (metriques.ANA(parser.getClassDictionnary().get(ci)) == ana) {
-            System.out.println(ANSI_GREEN +  pathToModelANATestMetric + " metric -- Passed -- Expected ANA Metric value " +
+            System.out.println(ANSI_GREEN +  pathToModelANATestMetric + " metric on class " + ci + " -- Passed -- Expected ANA Metric value " +
                     "to be " + ana + " and we calculated " + metriques.ANA(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
         } else {
-            System.out.println(ANSI_RED +  pathToModelANATestMetric + " metric -- Failed -- Expected ANA Metric value " +
+            System.out.println(ANSI_RED +  pathToModelANATestMetric + " metric on class " + ci + " -- Failed -- Expected ANA Metric value " +
                     "to be " + ana + " and we calculated " + metriques.ANA(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
         }
     }
@@ -311,10 +316,10 @@ public class Test {
         Parser parser = new Parser(userDir + pathToModelNOMTestMetric);
         Metriques metriques = new Metriques(parser.getClassDictionnary());
         if (metriques.NOM(parser.getClassDictionnary().get(ci)) == nom) {
-            System.out.println(ANSI_GREEN +  pathToModelANATestMetric + " metric -- Passed -- Expected NOM Metric value " +
+            System.out.println(ANSI_GREEN +  pathToModelANATestMetric + " metric on class " + ci + " -- Passed -- Expected NOM Metric value " +
                     "to be " + nom + " and we calculated " + metriques.NOM(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
         } else {
-            System.out.println(ANSI_RED +  pathToModelANATestMetric + " metric -- Passed -- Expected NOM Metric value " +
+            System.out.println(ANSI_RED +  pathToModelANATestMetric + " metric on class " + ci + " -- Failed -- Expected NOM Metric value " +
                     "to be " + nom + " and we calculated " + metriques.NOM(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
         }
     }
@@ -329,10 +334,10 @@ public class Test {
         Parser parser = new Parser(userDir + pathToModelNOATestMetric);
         Metriques metriques = new Metriques(parser.getClassDictionnary());
         if (metriques.NOA(parser.getClassDictionnary().get(ci)) == noa) {
-            System.out.println(ANSI_GREEN +  pathToModelNOATestMetric + " metric -- Passed -- Expected NOA Metric value " +
+            System.out.println(ANSI_GREEN +  pathToModelNOATestMetric + " metric on class " + ci + " -- Passed -- Expected NOA Metric value " +
                     "to be " + noa + " and we calculated " + metriques.NOA(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
         } else {
-            System.out.println(ANSI_RED+  pathToModelNOATestMetric + " metric -- Passed -- Expected NOA Metric value " +
+            System.out.println(ANSI_RED+  pathToModelNOATestMetric + " metric on class" + ci + " -- Failed -- Expected NOA Metric value " +
                     "to be " + noa + " and we calculated " + metriques.NOA(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
         }
     }
@@ -347,10 +352,10 @@ public class Test {
         Parser parser = new Parser(userDir + pathToModelITCTestMetric);
         Metriques metriques = new Metriques(parser.getClassDictionnary());
         if (metriques.ITC(parser.getClassDictionnary().get(ci)) == itc) {
-            System.out.println(ANSI_GREEN +  pathToModelITCTestMetric + " metric -- Passed -- Expected ITC Metric value " +
+            System.out.println(ANSI_GREEN +  pathToModelITCTestMetric + " metric on class " + ci + " -- Passed -- Expected ITC Metric value " +
                     "to be " + itc + " and we calculated " + metriques.ITC(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
         } else {
-            System.out.println(ANSI_RED+  pathToModelITCTestMetric + " metric -- Passed -- Expected ITC Metric value " +
+            System.out.println(ANSI_RED+  pathToModelITCTestMetric + " metric on class " + ci + " -- Failed -- Expected ITC Metric value " +
                     "to be " + itc + " and we calculated " + metriques.ITC(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
         }
     }
@@ -365,57 +370,102 @@ public class Test {
         Parser parser = new Parser(userDir + pathToModelETCTestMetric);
         Metriques metriques = new Metriques(parser.getClassDictionnary());
         if (metriques.ETC(parser.getClassDictionnary().get(ci)) == etc) {
-            System.out.println(ANSI_GREEN +  pathToModelETCTestMetric + " metric -- Passed -- Expected ETC Metric value " +
+            System.out.println(ANSI_GREEN +  pathToModelETCTestMetric + " metric on class " + ci + " -- Passed -- Expected ETC Metric value " +
                     "to be " + etc + " and we calculated " + metriques.ETC(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
         } else {
-            System.out.println(ANSI_RED+  pathToModelETCTestMetric + " metric -- Passed -- Expected ETC Metric value " +
+            System.out.println(ANSI_RED+  pathToModelETCTestMetric + " metric on class " + ci + " -- Failed -- Expected ETC Metric value " +
                     "to be " + etc + " and we calculated " + metriques.ETC(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
         }
     }
 
     /**
      * This function will test if a given Classe ci has the good CAC metric value.
-     * @param ligueMetric : Metric file to check CAC metric
+     * @param pathToModelCACTestMetric : Metric file to check CAC metric
+     * @param ci : String name of class to calculate metric
      * @param cac : Integer
      * */
-    private static void cacMetricTesting(String ligueMetric, Classe ci, Integer cac){
-
+    private static void cacMetricTesting(String pathToModelCACTestMetric, String ci, Integer cac){
+        Parser parser = new Parser(userDir + pathToModelCACTestMetric);
+        Metriques metriques = new Metriques(parser.getClassDictionnary());
+        if (metriques.CAC(parser.getClassDictionnary().get(ci)) == cac) {
+            System.out.println(ANSI_GREEN +  pathToModelCACTestMetric + " metric on class " + ci + " -- Passed -- Expected CAC Metric value " +
+                    "to be " + cac + " and we calculated " + metriques.CAC(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
+        } else {
+            System.out.println(ANSI_RED+  pathToModelCACTestMetric + " metric on class " + ci + " -- Failed -- Expected CAC Metric value " +
+                    "to be " + cac + " and we calculated " + metriques.CAC(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
+        }
     }
 
     /**
      * This function will test if a given Classe ci has the good DIT metric value.
-     * @param ligueMetric : Metric file to check DIT metric
+     * @param pathToModelDITTestMetric : Metric file to check DIT metric
+     * @param ci : String name of class to calculate metric
      * @param dit : Integer
      * */
-    private static void ditMetricTesting(String ligueMetric, Classe ci, Integer dit){
-
+    private static void ditMetricTesting(String pathToModelDITTestMetric, String ci, Integer dit){
+        Parser parser = new Parser(userDir + pathToModelDITTestMetric);
+        Metriques metriques = new Metriques(parser.getClassDictionnary());
+        if (metriques.DIT(parser.getClassDictionnary().get(ci)) == dit) {
+            System.out.println(ANSI_GREEN +  pathToModelDITTestMetric + " metric on class " + ci + " -- Passed -- Expected DIT Metric value " +
+                    "to be " + dit + " and we calculated " + metriques.DIT(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
+        } else {
+            System.out.println(ANSI_RED+  pathToModelDITTestMetric + " metric on class " + ci + " -- Failed -- Expected DIT Metric value " +
+                    "to be " + dit + " and we calculated " + metriques.DIT(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
+        }
     }
 
     /**
      * This function will test if a given Classe ci has the good CLD metric value.
-     * @param ligueMetric : Metric file to check CLD metric
+     * @param pathToModelCLDTestMetric : Metric file to check CLD metric
+     * @param ci : String name of class to calculate metric
      * @param cld : Integer
      * */
-    private static void cldMetricTesting(String ligueMetric, Classe ci, Integer cld){
-
+    private static void cldMetricTesting(String pathToModelCLDTestMetric, String ci, Integer cld){
+        Parser parser = new Parser(userDir + pathToModelCLDTestMetric);
+        Metriques metriques = new Metriques(parser.getClassDictionnary());
+        if (metriques.CLD(parser.getClassDictionnary().get(ci)) == cld) {
+            System.out.println(ANSI_GREEN +  pathToModelCLDTestMetric + " metric on class " + ci + " -- Passed -- Expected CLD Metric value " +
+                    "to be " + cld + " and we calculated " + metriques.CLD(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
+        } else {
+            System.out.println(ANSI_RED+  pathToModelCLDTestMetric + " metric on class " + ci + " -- Failed -- Expected CLD Metric value " +
+                    "to be " + cld + " and we calculated " + metriques.CLD(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
+        }
     }
 
     /**
      * This function will test if a given Classe ci has the good NOC metric value.
-     * @param ligueMetric : Metric file to check NOC metric
+     * @param pathToModelNOCTestMetric : Metric file to check NOC metric
+     * @param ci : String name of class to calculate metric
      * @param noc : Integer
      * */
-    private static void nocMetricTesting(String ligueMetric, Classe ci, Integer noc){
-
+    private static void nocMetricTesting(String pathToModelNOCTestMetric, String ci, Integer noc){
+        Parser parser = new Parser(userDir + pathToModelNOCTestMetric);
+        Metriques metriques = new Metriques(parser.getClassDictionnary());
+        if (metriques.NOC(parser.getClassDictionnary().get(ci)) == noc) {
+            System.out.println(ANSI_GREEN +  pathToModelNOCTestMetric + " metric on class " + ci + " -- Passed -- Expected NOC Metric value " +
+                    "to be " + noc + " and we calculated " + metriques.NOC(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
+        } else {
+            System.out.println(ANSI_RED+  pathToModelNOCTestMetric + " metric on class " + ci + " -- Failed -- Expected NOC Metric value " +
+                    "to be " + noc + " and we calculated " + metriques.NOC(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
+        }
     }
 
     /**
      * This function will test if a given Classe ci has the good NOD metric value.
-     * @param ligueMetric : Metric file to check NOD metric
+     * @param pathToModelNODTestMetric : Metric file to check NOD metric
+     * @param ci : String name of class to calculate metric
      * @param nod : Integer
      * */
-    private static void nodMetricTesting(String ligueMetric, Classe ci, Integer nod){
-
+    private static void nodMetricTesting(String pathToModelNODTestMetric, String ci, Integer nod){
+        Parser parser = new Parser(userDir + pathToModelNODTestMetric);
+        Metriques metriques = new Metriques(parser.getClassDictionnary());
+        if (metriques.NOD(parser.getClassDictionnary().get(ci)) == nod) {
+            System.out.println(ANSI_GREEN +  pathToModelNODTestMetric + " metric on class " + ci + " -- Passed -- Expected NOD Metric value " +
+                    "to be " + nod + " and we calculated " + metriques.NOD(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
+        } else {
+            System.out.println(ANSI_RED+  pathToModelNODTestMetric + " metric on class " + ci + " -- Failed -- Expected ETC Metric value " +
+                    "to be " + nod + " and we calculated " + metriques.NOD(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
+        }
     }
 
     public static void main(String[] args) {
@@ -447,14 +497,53 @@ public class Test {
         testLigueMetric(pathToLigueClassesWithSameAttributNameButDifferentType);
 
         /* Here we will do one test for every metric */
+        System.out.println();
         anaMetricTesting(pathToModelANATestMetric, "ANATesting", 2.5);
+
+        System.out.println();
         nomMetricTesting(pathToModelNOMTestMetric, "NOMTesting2", 2);
+
+        System.out.println();
         noaMetricTesting(pathToModelNOATestMetric, "NOATesting1", 3);
         noaMetricTesting(pathToModelNOATestMetric, "NOATesting2", 6);
+
+        System.out.println();
         itcMetricTesting(pathToModelITCTestMetric, "ITCTesting1", 2);
         itcMetricTesting(pathToModelITCTestMetric, "ITCTesting2", 0);
+
+        System.out.println();
         etcMetricTesting(pathToModelETCTestMetric, "ETCTesting1", 0);
         etcMetricTesting(pathToModelETCTestMetric, "ETCTesting2", 2);
+
+        System.out.println();
+        cacMetricTesting(pathToModelCACTestMetric, "CACTesting1", 2);
+        cacMetricTesting(pathToModelCACTestMetric, "CACTesting2", 2);
+        cacMetricTesting(pathToModelCACTestMetric, "CACTesting3", 2);
+
+        System.out.println();
+        ditMetricTesting(pathToModelDITTestMetric, "DITTesting1", 0);
+        ditMetricTesting(pathToModelDITTestMetric, "DITTesting2", 1);
+        ditMetricTesting(pathToModelDITTestMetric, "DITTesting3", 2);
+        ditMetricTesting(pathToModelDITTestMetric, "DITTesting4", 0);
+
+        System.out.println();
+        cldMetricTesting(pathToModelCLDTestMetric, "CLDTesting1", 3);
+        cldMetricTesting(pathToModelCLDTestMetric, "CLDTesting2", 2);
+        cldMetricTesting(pathToModelCLDTestMetric, "CLDTesting3", 1);
+        cldMetricTesting(pathToModelCLDTestMetric, "CLDTesting4", 0);
+
+        System.out.println();
+        nocMetricTesting(pathToModelNOCTestMetric, "NOCTesting1", 2);
+        nocMetricTesting(pathToModelNOCTestMetric, "NOCTesting2", 2);
+        nocMetricTesting(pathToModelNOCTestMetric, "NOCTesting3", 2);
+        nocMetricTesting(pathToModelNOCTestMetric, "NOCTesting4", 3);
+
+        System.out.println();
+        nodMetricTesting(pathToModelNODTestMetric, "NODTesting1", 4);
+        nodMetricTesting(pathToModelNODTestMetric, "NODTesting2", 3);
+        nodMetricTesting(pathToModelNODTestMetric, "NODTesting3", 1);
+        nodMetricTesting(pathToModelNODTestMetric, "NODTesting4", 0);
+        nodMetricTesting(pathToModelNODTestMetric, "NODTesting5", 0);
 
         System.out.println(ANSI_WHITE + "-------------------------------------------- Metric Test Suite | END --------------------------------------------" + ANSI_RESET);
     }

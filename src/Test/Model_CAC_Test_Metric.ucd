@@ -1,0 +1,37 @@
+MODEL Model_CAC
+CLASS CACTesting1
+ATTRIBUTES
+OPERATIONS
+	methodeTesting1(attribut1 : String) : void
+;
+
+CLASS CACTesting2
+ATTRIBUTES
+OPERATIONS
+	methodeTesting2(attribut1 : String) : void
+;
+
+CLASS CACTesting3
+ATTRIBUTES
+OPERATIONS
+	methodeTesting3(attribut1 : String) : void
+;
+
+RELATION methodeTesting1
+       ROLES
+       CLASS CACTesting1 MANY,
+       CLASS CACTesting3 ONE
+;
+
+RELATION methodeTesting2
+       ROLES
+       CLASS CACTesting2 ONE_OR_MANY,
+       CLASS CACTesting1 ONE
+;
+
+AGGREGATION
+CONTAINER
+       CLASS CACTesting2 ONE
+PARTS
+       CLASS CACTesting3 ONE_OR_MANY
+;

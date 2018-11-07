@@ -8,10 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="48d282e3-d12f-40e5-b386-8a468ed722cd" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1_IFT-3913/metriques/CsvGenerator.class" afterPath="$PROJECT_DIR$/out/production/TP1_IFT-3913/metriques/CsvGenerator.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1_IFT-3913/view/Ui.class" afterPath="$PROJECT_DIR$/out/production/TP1_IFT-3913/view/Ui.class" />
       <change beforePath="$PROJECT_DIR$/src/Test/Test.java" afterPath="$PROJECT_DIR$/src/Test/Test.java" />
-      <change beforePath="$PROJECT_DIR$/src/metriques/CsvGenerator.java" afterPath="$PROJECT_DIR$/src/metriques/CsvGenerator.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -96,7 +93,7 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5788913">
+    <splitter split-orientation="horizontal" split-proportion="0.5042644">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
@@ -149,8 +146,8 @@
           <file leaf-file-name="Test.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Test/Test.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1403">
-                  <caret line="461" column="1" lean-forward="true" selection-start-line="461" selection-start-column="1" selection-end-line="461" selection-end-column="1" />
+                <state relative-caret-position="298">
+                  <caret line="478" column="73" lean-forward="false" selection-start-line="478" selection-start-column="73" selection-end-line="478" selection-end-column="73" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="method#testLigueNoModel#0;class#Test#0" expanded="false" />
@@ -195,8 +192,8 @@
           <file leaf-file-name="Metriques.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/metriques/Metriques.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-1233">
-                  <caret line="132" column="38" lean-forward="false" selection-start-line="132" selection-start-column="38" selection-end-line="132" selection-end-column="38" />
+                <state relative-caret-position="399">
+                  <caret line="315" column="69" lean-forward="true" selection-start-line="315" selection-start-column="69" selection-end-line="315" selection-end-column="69" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#2651#2652#0" expanded="true" />
@@ -429,7 +426,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Test">
+  <component name="RunManager" selected="Application.Main">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HEIGHT" value="0" />
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
@@ -617,8 +614,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.Test" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="0" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Test" />
         <item index="2" class="java.lang.String" itemvalue="Application.CsvGenerator" />
         <item index="3" class="java.lang.String" itemvalue="Application.Metriques" />
         <item index="4" class="java.lang.String" itemvalue="Application.Parser" />
@@ -651,12 +648,12 @@
       <workItem from="1538313152784" duration="76827000" />
       <workItem from="1539042841526" duration="185000" />
       <workItem from="1539640568553" duration="44000" />
-      <workItem from="1541338778696" duration="78128000" />
+      <workItem from="1541338778696" duration="83331000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="187508000" />
+    <option name="totallyTimeSpent" value="192711000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -671,7 +668,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4423913" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4423913" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3195652" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -704,7 +701,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Test/Test.java</url>
-          <line>329</line>
+          <line>334</line>
           <properties />
           <option name="timeStamp" value="144" />
         </line-breakpoint>
@@ -1069,8 +1066,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/metriques/Metriques.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1233">
-          <caret line="132" column="38" lean-forward="false" selection-start-line="132" selection-start-column="38" selection-end-line="132" selection-end-column="38" />
+        <state relative-caret-position="399">
+          <caret line="315" column="69" lean-forward="true" selection-start-line="315" selection-start-column="69" selection-end-line="315" selection-end-column="69" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2651#2652#0" expanded="true" />
@@ -1093,8 +1090,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Test/Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1403">
-          <caret line="461" column="1" lean-forward="true" selection-start-line="461" selection-start-column="1" selection-end-line="461" selection-end-column="1" />
+        <state relative-caret-position="298">
+          <caret line="478" column="73" lean-forward="false" selection-start-line="478" selection-start-column="73" selection-end-line="478" selection-end-column="73" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#testLigueNoModel#0;class#Test#0" expanded="false" />
