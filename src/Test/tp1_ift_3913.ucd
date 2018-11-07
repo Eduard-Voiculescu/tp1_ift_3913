@@ -21,6 +21,7 @@ ATTRIBUTES
 	parser : Parser,
 	selectedClasse : String,
 OPERATIONS
+	Ui() : Constructor,
 	initializeUi() : void,
 	printMetriques(ci : String) : void,
 	addElementMetric(metric : String, metricValue : Number) : String,
@@ -36,6 +37,7 @@ ATTRIBUTES
 	attributName : String,
 	attributType : String
 OPERATIONS
+	Attribut(attributName : String, attributType : String) : Constructor,
 	getAttributName() : String,
 	setAttributName(attributName : String) : void,
 	getAttributType() : String,
@@ -53,6 +55,7 @@ ATTRIBUTES
 	relations : ArrayList<Relation>,
 	parent : ArrayList<Classe>
 OPERATIONS
+	Classe(className : String, attributs : ArrayList<Attribut>, methods : ArrayList<Method>) : Constructor,
 	getClassName() : String,
 	setClassName(className : String) : void,
 	getAttributs() : ArrayList<Attribut>,
@@ -77,6 +80,7 @@ ATTRIBUTES
 	methodType : String,
 	attributs : ArrayList<Attribut>
 OPERATIONS
+	Method(methodName : String, methodType : String, attributs : ArrayList<Attribut>) : Constructor,
 	getMethodName() : String,
 	setMethodName(methodName : String) : void,
 	getMethodType() : String,
@@ -93,6 +97,7 @@ ATTRIBUTES
 	relationName : String,
 	relationDetails : String
 OPERATIONS
+	Relation(relationName : String) : Constructor,
 	getRelationName() : String,
 	setRelationName(relationName : String) : void,
 	getRelationDetails() : String,
@@ -110,6 +115,7 @@ ATTRIBUTES
 	fileContent : ArrayList<String>,
 	valide : boolean
 OPERATIONS
+	Parser(filePath : String) : Constructor,
 	getClassDictionnary() : HashMap<String.Classe>,
 	readFile(filePath : String) : void,
 	parseFile(content : ArrayList<String>) : void,
@@ -125,6 +131,7 @@ ATTRIBUTES
 	details : HashMap<String.String>,
 	detailsMetriques : String[]
 OPERATIONS
+	Metriques(classes : HashMap<String.Classe>) : Constructor,
 	getClasses() : HashMap<String.Classe>,
 	setClasses(classes : HashMap<String.Classe>) : void,
 	getDetails() : HashMap<String.String>,
@@ -156,6 +163,7 @@ ATTRIBUTES
 	csvWriter : CSVWriter,
 	metriques : Metriques
 OPERATIONS
+	CsvGenerator(classDictionary : HashMap<String.Classe>) : Constructor,
 	generateCSV(classDictionary : HashMap<String.Classe>) : void,
 	calculateMetrique(classDictionary : HashMap<String.Classe>) : List<String[]>,
 	writeAllDataToCSV() : void

@@ -97,10 +97,10 @@ public class Ui {
     private void initializeUi() {
 
         setJListSize(this.listClasses, 20, 20, 100);
-        setJListSize(this.listAttributs, 7, 20, 300);
-        setJListSize(this.listMethods, 7, 20, 300);
-        setJListSize(this.listSubClasses, 7, 20, 300);
-        setJListSize(this.listAssociations_Aggregations, 7, 20, 300);
+        setJListSize(this.listAttributs, 7, 20, 350);
+        setJListSize(this.listMethods, 7, 20, 350);
+        setJListSize(this.listSubClasses, 7, 20, 350);
+        setJListSize(this.listAssociations_Aggregations, 7, 20, 350);
         setJListSize(this.listDetails, 5, 20, 600);
         setJListSize(this.listMetriques, 20, 20, 100);
 
@@ -289,16 +289,21 @@ public class Ui {
 
         Classe classe = this.parser.getClassDictionnary().get(ci);
         Metriques metriques = new Metriques(this.parser.getClassDictionnary());
-        this.metriques.addElement(addElementMetric("ANA", metriques.ANA(classe)));
-        this.metriques.addElement(addElementMetric("NOM", metriques.NOM(classe)));
-        this.metriques.addElement(addElementMetric("NOA", metriques.NOA(classe)));
-        this.metriques.addElement(addElementMetric("ITC", metriques.ITC(classe)));
-        this.metriques.addElement(addElementMetric("ETC", metriques.ETC(classe)));
-        this.metriques.addElement(addElementMetric("CAC", metriques.CAC(classe)));
-        this.metriques.addElement(addElementMetric("DIT", metriques.DIT(classe)));
-        this.metriques.addElement(addElementMetric("CLD", metriques.CLD(classe)));
-        this.metriques.addElement(addElementMetric("NOC", metriques.NOC(classe)));
-        this.metriques.addElement(addElementMetric("NOD", metriques.NOD(classe)));
+        try {
+            this.metriques.addElement(addElementMetric("ANA", metriques.ANA(classe)));
+            this.metriques.addElement(addElementMetric("NOM", metriques.NOM(classe)));
+            this.metriques.addElement(addElementMetric("NOA", metriques.NOA(classe)));
+            this.metriques.addElement(addElementMetric("ITC", metriques.ITC(classe)));
+            this.metriques.addElement(addElementMetric("ETC", metriques.ETC(classe)));
+            this.metriques.addElement(addElementMetric("CAC", metriques.CAC(classe)));
+            this.metriques.addElement(addElementMetric("DIT", metriques.DIT(classe)));
+            this.metriques.addElement(addElementMetric("CLD", metriques.CLD(classe)));
+            this.metriques.addElement(addElementMetric("NOC", metriques.NOC(classe)));
+            this.metriques.addElement(addElementMetric("NOD", metriques.NOD(classe)));
+        } catch (NullPointerException e) {
+            System.out.println("--- ERROR Une des métriques ne peut pas être calculé. ---");
+        }
+
     }
 
     /**
