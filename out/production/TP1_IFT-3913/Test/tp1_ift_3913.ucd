@@ -220,3 +220,48 @@ OPERATIONS
 	nocMetricTesting(pathToModelNOCTestMetric : String, ci : String, noc : Integer) : void,
 	nodMetricTesting(pathToModelNODTestMetric : String, ci : String, nod : Integer) : void,
 ;
+
+AGGREGATION
+CONTAINER
+	CLASS Classe ONE
+PARTS
+	CLASS Attribut ONE_OR_MANY,
+	CLASS Method ONE_OR_MANY,
+	CLASS Relation ONE_OR_MANY
+;
+
+AGGREGATION
+CONTAINER
+	CLASS Method ONE
+PARTS
+	CLASS Attribut ONE_OR_MANY
+;
+
+AGGREGATION
+CONTAINER
+	CLASS Parser ONE
+PARTS
+	CLASS Classe ONE_OR_MANY
+;
+
+AGGREGATION
+CONTAINER
+	CLASS Metriques ONE
+PARTS
+	CLASS Classe ONE_OR_MANY
+;
+
+RELATION parseClass
+	ROLES
+	CLASS Attribut ZERO_OR_MANY,
+	CLASS Method ZERO_OR_MANY,
+	CLASS Classe ONE_OR_MANY
+;
+
+AGGREGATION 
+CONTAINER
+	CLASS CsvGenerator ONE
+PARTS
+	CLASS Classe ONE_OR_MANY,
+	CLASS Metriques ONE
+;

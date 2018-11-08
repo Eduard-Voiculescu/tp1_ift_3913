@@ -25,6 +25,7 @@ public class Test {
 
     /* Test Suite for parser */
     private static String pathToLigueNoModel = "Ligue_no_model.ucd";
+    private static String pathToLigueClassesEmpty = "Ligue_classes_are_empty.ucd";
     private static String pathToLigueDifferentAssignment = "Ligue_different_assignment.ucd";
     private static String pathToLigueAllClassesAreDoubled = "Ligue_all_classes_are_doubled.ucd";
     private static String pathToLigueClassesDoubledDifferentAttributs = "Ligue_classes_doubled_different_attributs.ucd";
@@ -62,6 +63,22 @@ public class Test {
         }
         System.out.println(ANSI_GREEN + "testLigueNoModel -- Passed" + ANSI_RESET);
     }
+
+    /**
+     * This function tests if a model with empty classes is ok.
+     * @param pathToLigueClassesEmpty : path to ligue with empty classes
+     */
+    private static void testLigueClassesEmpty (String pathToLigueClassesEmpty){
+
+        Parser parser = new Parser(userDir + pathToLigueClassesEmpty);
+        if (!parser.valide) { // I want valide to be true
+            System.out.println(ANSI_RED + "testLigueClassesEmpty -- Failed" + ANSI_RESET);
+            throw new AssertionError();
+        }
+        System.out.println(ANSI_GREEN + "testLigueClassesEmpty -- Passed" + ANSI_RESET);
+    }
+
+
 
     /**
      * This function is used to check if Ligue with different assignment will still work
@@ -201,6 +218,7 @@ public class Test {
         }
         else {
             System.out.println(ANSI_RED + Ligue +" metric -- Failed" + ANSI_RESET);
+            throw new AssertionError();
         }
     }
 
@@ -224,6 +242,7 @@ public class Test {
         }
         else {
             System.out.println(ANSI_RED + Ligue +" metric -- Failed" + ANSI_RESET);
+            throw new AssertionError();
         }
     }
 
@@ -250,6 +269,7 @@ public class Test {
         }
         else {
             System.out.println(ANSI_RED + Ligue +" metric -- Failed" + ANSI_RESET);
+            throw new AssertionError();
         }
     }
 
@@ -303,6 +323,7 @@ public class Test {
         } else {
             System.out.println(ANSI_RED +  pathToModelANATestMetric + " metric on class " + ci + " -- Failed -- Expected ANA Metric value " +
                     "to be " + ana + " and we calculated " + metriques.ANA(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
+            throw new AssertionError();
         }
     }
 
@@ -321,6 +342,7 @@ public class Test {
         } else {
             System.out.println(ANSI_RED +  pathToModelANATestMetric + " metric on class " + ci + " -- Failed -- Expected NOM Metric value " +
                     "to be " + nom + " and we calculated " + metriques.NOM(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
+            throw new AssertionError();
         }
     }
 
@@ -339,6 +361,7 @@ public class Test {
         } else {
             System.out.println(ANSI_RED+  pathToModelNOATestMetric + " metric on class" + ci + " -- Failed -- Expected NOA Metric value " +
                     "to be " + noa + " and we calculated " + metriques.NOA(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
+            throw new AssertionError();
         }
     }
 
@@ -357,6 +380,7 @@ public class Test {
         } else {
             System.out.println(ANSI_RED+  pathToModelITCTestMetric + " metric on class " + ci + " -- Failed -- Expected ITC Metric value " +
                     "to be " + itc + " and we calculated " + metriques.ITC(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
+            throw new AssertionError();
         }
     }
 
@@ -375,6 +399,7 @@ public class Test {
         } else {
             System.out.println(ANSI_RED+  pathToModelETCTestMetric + " metric on class " + ci + " -- Failed -- Expected ETC Metric value " +
                     "to be " + etc + " and we calculated " + metriques.ETC(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
+            throw new AssertionError();
         }
     }
 
@@ -393,6 +418,7 @@ public class Test {
         } else {
             System.out.println(ANSI_RED+  pathToModelCACTestMetric + " metric on class " + ci + " -- Failed -- Expected CAC Metric value " +
                     "to be " + cac + " and we calculated " + metriques.CAC(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
+            throw new AssertionError();
         }
     }
 
@@ -411,6 +437,7 @@ public class Test {
         } else {
             System.out.println(ANSI_RED+  pathToModelDITTestMetric + " metric on class " + ci + " -- Failed -- Expected DIT Metric value " +
                     "to be " + dit + " and we calculated " + metriques.DIT(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
+            throw new AssertionError();
         }
     }
 
@@ -429,6 +456,7 @@ public class Test {
         } else {
             System.out.println(ANSI_RED+  pathToModelCLDTestMetric + " metric on class " + ci + " -- Failed -- Expected CLD Metric value " +
                     "to be " + cld + " and we calculated " + metriques.CLD(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
+            throw new AssertionError();
         }
     }
 
@@ -447,6 +475,7 @@ public class Test {
         } else {
             System.out.println(ANSI_RED+  pathToModelNOCTestMetric + " metric on class " + ci + " -- Failed -- Expected NOC Metric value " +
                     "to be " + noc + " and we calculated " + metriques.NOC(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
+            throw new AssertionError();
         }
     }
 
@@ -465,6 +494,7 @@ public class Test {
         } else {
             System.out.println(ANSI_RED+  pathToModelNODTestMetric + " metric on class " + ci + " -- Failed -- Expected ETC Metric value " +
                     "to be " + nod + " and we calculated " + metriques.NOD(parser.getClassDictionnary().get(ci)) + ANSI_RESET);
+            throw new AssertionError();
         }
     }
 
@@ -472,6 +502,7 @@ public class Test {
 
         System.out.println(ANSI_WHITE + "------------------------------------------- Parser Test Suite | BEGIN -------------------------------------------" + ANSI_RESET);
         testLigueNoModel(pathToLigueNoModel);
+        testLigueClassesEmpty(pathToLigueClassesEmpty);
         testLigueDifferentAssignment(pathToLigueDifferentAssignment);
         testLigueAllClassesAreDoubled(pathToLigueAllClassesAreDoubled);
         testLigueClassesDoubledDifferentAttributs(pathToLigueClassesDoubledDifferentAttributs);
