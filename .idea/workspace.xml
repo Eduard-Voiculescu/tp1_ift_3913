@@ -7,12 +7,69 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="48d282e3-d12f-40e5-b386-8a468ed722cd" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/README.md" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/TP1_IFT_3913_jar.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/TP1_IFT_3913_jar.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Ligue.ucd" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/Test/Test.html" afterPath="$PROJECT_DIR$/JavaDoc/Test/Test.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/Test/class-use/Test.html" afterPath="$PROJECT_DIR$/JavaDoc/Test/class-use/Test.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/Test/package-frame.html" afterPath="$PROJECT_DIR$/JavaDoc/Test/package-frame.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/Test/package-summary.html" afterPath="$PROJECT_DIR$/JavaDoc/Test/package-summary.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/Test/package-tree.html" afterPath="$PROJECT_DIR$/JavaDoc/Test/package-tree.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/Test/package-use.html" afterPath="$PROJECT_DIR$/JavaDoc/Test/package-use.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/allclasses-frame.html" afterPath="$PROJECT_DIR$/JavaDoc/allclasses-frame.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/allclasses-noframe.html" afterPath="$PROJECT_DIR$/JavaDoc/allclasses-noframe.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/constant-values.html" afterPath="$PROJECT_DIR$/JavaDoc/constant-values.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/deprecated-list.html" afterPath="$PROJECT_DIR$/JavaDoc/deprecated-list.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/help-doc.html" afterPath="$PROJECT_DIR$/JavaDoc/help-doc.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-1.html" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-1.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-10.html" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-10.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-11.html" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-11.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-12.html" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-12.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-13.html" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-13.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-14.html" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-14.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-15.html" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-15.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-2.html" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-2.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-3.html" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-3.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-4.html" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-4.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-5.html" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-5.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-6.html" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-6.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-7.html" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-7.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-8.html" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-8.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-9.html" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-9.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index.html" afterPath="$PROJECT_DIR$/JavaDoc/index.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/member-search-index.js" afterPath="$PROJECT_DIR$/JavaDoc/member-search-index.js" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/member-search-index.zip" afterPath="$PROJECT_DIR$/JavaDoc/member-search-index.zip" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/model/Attribut.html" afterPath="$PROJECT_DIR$/JavaDoc/model/Attribut.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/model/Classe.html" afterPath="$PROJECT_DIR$/JavaDoc/model/Classe.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/model/Method.html" afterPath="$PROJECT_DIR$/JavaDoc/model/Method.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/model/Parser.html" afterPath="$PROJECT_DIR$/JavaDoc/model/Parser.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/model/Relation.html" afterPath="$PROJECT_DIR$/JavaDoc/model/Relation.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/model/class-use/Attribut.html" afterPath="$PROJECT_DIR$/JavaDoc/model/class-use/Attribut.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/model/class-use/Classe.html" afterPath="$PROJECT_DIR$/JavaDoc/model/class-use/Classe.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/model/class-use/Method.html" afterPath="$PROJECT_DIR$/JavaDoc/model/class-use/Method.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/model/class-use/Parser.html" afterPath="$PROJECT_DIR$/JavaDoc/model/class-use/Parser.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/model/class-use/Relation.html" afterPath="$PROJECT_DIR$/JavaDoc/model/class-use/Relation.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/model/package-frame.html" afterPath="$PROJECT_DIR$/JavaDoc/model/package-frame.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/model/package-summary.html" afterPath="$PROJECT_DIR$/JavaDoc/model/package-summary.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/model/package-tree.html" afterPath="$PROJECT_DIR$/JavaDoc/model/package-tree.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/model/package-use.html" afterPath="$PROJECT_DIR$/JavaDoc/model/package-use.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/overview-frame.html" afterPath="$PROJECT_DIR$/JavaDoc/overview-frame.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/overview-summary.html" afterPath="$PROJECT_DIR$/JavaDoc/overview-summary.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/overview-tree.html" afterPath="$PROJECT_DIR$/JavaDoc/overview-tree.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/package-list" afterPath="$PROJECT_DIR$/JavaDoc/package-list" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/package-search-index.js" afterPath="$PROJECT_DIR$/JavaDoc/package-search-index.js" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/package-search-index.zip" afterPath="$PROJECT_DIR$/JavaDoc/package-search-index.zip" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/type-search-index.js" afterPath="$PROJECT_DIR$/JavaDoc/type-search-index.js" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/type-search-index.zip" afterPath="$PROJECT_DIR$/JavaDoc/type-search-index.zip" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/view/Main.html" afterPath="$PROJECT_DIR$/JavaDoc/view/Main.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/view/Ui.html" afterPath="$PROJECT_DIR$/JavaDoc/view/Ui.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/view/class-use/Main.html" afterPath="$PROJECT_DIR$/JavaDoc/view/class-use/Main.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/view/class-use/Ui.html" afterPath="$PROJECT_DIR$/JavaDoc/view/class-use/Ui.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/view/package-frame.html" afterPath="$PROJECT_DIR$/JavaDoc/view/package-frame.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/view/package-summary.html" afterPath="$PROJECT_DIR$/JavaDoc/view/package-summary.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/view/package-tree.html" afterPath="$PROJECT_DIR$/JavaDoc/view/package-tree.html" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/view/package-use.html" afterPath="$PROJECT_DIR$/JavaDoc/view/package-use.html" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TP1_IFT_3913_jar/TP1_IFT-3913.jar" afterPath="$PROJECT_DIR$/out/artifacts/TP1_IFT_3913_jar/TP1_IFT-3913.jar" />
       <change beforePath="$PROJECT_DIR$/out/production/TP1_IFT-3913/Test/tp1_ift_3913.ucd" afterPath="$PROJECT_DIR$/out/production/TP1_IFT-3913/Test/tp1_ift_3913.ucd" />
-      <change beforePath="$PROJECT_DIR$/src/Test/Test.java" afterPath="$PROJECT_DIR$/src/Test/Test.java" />
-      <change beforePath="$PROJECT_DIR$/src/Test/tp1_ift_3913.ucd" afterPath="$PROJECT_DIR$/src/Test/tp1_ift_3913.ucd" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -100,11 +157,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.52224374">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/view/Main.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="289">
-                  <caret line="17" column="9" lean-forward="true" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+                <state relative-caret-position="374">
+                  <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -113,8 +170,8 @@
           <file leaf-file-name="Attribut.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/model/Attribut.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="425">
-                  <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -123,8 +180,8 @@
           <file leaf-file-name="Ui.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/view/Ui.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="569">
-                  <caret line="273" column="43" lean-forward="true" selection-start-line="273" selection-start-column="43" selection-end-line="273" selection-end-column="43" />
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="method#addElementMetric#0;class#Ui#0" expanded="false" />
@@ -138,8 +195,8 @@
           <file leaf-file-name="CsvGenerator.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/metriques/CsvGenerator.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="527">
-                  <caret line="46" column="25" lean-forward="true" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -147,11 +204,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Test.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Test.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Test/Test.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="722">
-                  <caret line="94" column="5" lean-forward="true" selection-start-line="94" selection-start-column="5" selection-end-line="94" selection-end-column="5" />
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="method#testLigueAllClassesAreDoubled#0;class#Test#0" expanded="false" />
@@ -169,11 +226,11 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="Classe.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Classe.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/model/Classe.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1070">
-                  <caret line="93" column="0" lean-forward="true" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding>
                     <element signature="e#2921#2922#0" expanded="true" />
                     <element signature="e#2963#2964#0" expanded="true" />
@@ -193,8 +250,8 @@
           <file leaf-file-name="Metriques.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/metriques/Metriques.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="187">
-                  <caret line="23" column="39" lean-forward="false" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#2651#2652#0" expanded="true" />
@@ -216,16 +273,15 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Parser.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Parser.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/model/Parser.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="322">
-                  <caret line="176" column="38" lean-forward="false" selection-start-line="176" selection-start-column="32" selection-end-line="176" selection-end-column="38" />
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#2192#2193#0" expanded="true" />
                     <element signature="e#2231#2232#0" expanded="true" />
-                    <element signature="e#5364#5374#0" expanded="true" />
                     <element signature="e#5430#5438#0" expanded="true" />
                   </folding>
                 </state>
@@ -248,8 +304,8 @@
           <file leaf-file-name="Method.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/model/Method.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="493">
-                  <caret line="43" column="21" lean-forward="true" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -260,8 +316,8 @@
           <file leaf-file-name="Relation.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/model/Relation.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-80">
-                  <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -285,6 +341,7 @@
       <find>jPanelClass</find>
       <find>Map.</find>
       <find>valide</find>
+      <find>genera</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -310,16 +367,16 @@
         <option value="$PROJECT_DIR$/src/Test/Ligue_different_assignment.ucd" />
         <option value="$PROJECT_DIR$/src/Test/Ligue.ucd" />
         <option value="$PROJECT_DIR$/Ligue.ucd" />
-        <option value="$PROJECT_DIR$/src/view/Main.java" />
         <option value="$PROJECT_DIR$/src/model/Relation.java" />
-        <option value="$PROJECT_DIR$/src/model/Classe.java" />
         <option value="$PROJECT_DIR$/src/model/Method.java" />
-        <option value="$PROJECT_DIR$/src/model/Attribut.java" />
-        <option value="$PROJECT_DIR$/src/metriques/Metriques.java" />
-        <option value="$PROJECT_DIR$/src/metriques/CsvGenerator.java" />
         <option value="$PROJECT_DIR$/src/model/Parser.java" />
-        <option value="$PROJECT_DIR$/src/view/Ui.java" />
+        <option value="$PROJECT_DIR$/src/metriques/Metriques.java" />
+        <option value="$PROJECT_DIR$/src/model/Classe.java" />
         <option value="$PROJECT_DIR$/src/Test/Test.java" />
+        <option value="$PROJECT_DIR$/src/metriques/CsvGenerator.java" />
+        <option value="$PROJECT_DIR$/src/view/Ui.java" />
+        <option value="$PROJECT_DIR$/src/model/Attribut.java" />
+        <option value="$PROJECT_DIR$/src/view/Main.java" />
       </list>
     </option>
   </component>
@@ -330,8 +387,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1562" />
-    <option name="y" value="-8" />
+    <option name="x" value="46" />
+    <option name="y" value="-17" />
     <option name="width" value="1934" />
     <option name="height" value="1047" />
   </component>
@@ -391,6 +448,21 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="tp1_ift_3913" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="tp1_ift_3913" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="opencsv-4.3.2.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tp1_ift_3913" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="opencsv-4.3.2.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="opencsv" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -406,7 +478,7 @@
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538086191264" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/opencsv-4.3.2.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15527344" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -651,15 +723,16 @@
       <workItem from="1539042841526" duration="185000" />
       <workItem from="1539640568553" duration="44000" />
       <workItem from="1541338778696" duration="84195000" />
-      <workItem from="1541566855810" duration="14005000" />
+      <workItem from="1541566855810" duration="19666000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="207580000" />
+    <option name="totallyTimeSpent" value="213241000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1928" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -670,7 +743,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18478261" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18478261" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3195652" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -773,19 +846,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/view/Ui.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2958">
-          <caret line="174" column="33" lean-forward="false" selection-start-line="174" selection-start-column="33" selection-end-line="174" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#addElementMetric#0;class#Ui#0" expanded="false" />
-            <element signature="method#printClasses#0;class#Ui#0" expanded="false" />
-            <element signature="method#setJListSize#0;class#Ui#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/src.zip!/javax/swing/JFrame.java" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/src.zip!/javax/swing/JLabel.java" />
     <entry file="jar://C:/Program Files/Java/jdk-9.0.1/lib/src.zip!/java.desktop/javax/swing/Icon.java" />
@@ -940,13 +1000,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/Downloads/opencsv-4.3.2.jar!/com/opencsv/CSVWriter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-9.0.1/lib/src.zip!/java.desktop/javax/swing/JList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="246">
@@ -968,34 +1021,98 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Ligue.ucd">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="1" lean-forward="false" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Downloads/opencsv-4.3.2.jar!/com/opencsv/CSVWriter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding>
+            <marker date="1541478632144" expanded="false" signature="0:104" ph="/.../" />
+            <marker date="1541478632144" expanded="false" signature="135:178" ph="..." />
+            <marker date="1541478632144" expanded="false" signature="376:387" ph=" { " />
+            <marker date="1541478632144" expanded="false" signature="405:411" ph=" }" />
+            <marker date="1541478632144" expanded="true" signature="417:435" ph="/**...*/" />
+            <marker date="1541478632144" expanded="false" signature="503:514" ph=" { " />
+            <marker date="1541478632144" expanded="false" signature="543:549" ph=" }" />
+            <marker date="1541478632144" expanded="true" signature="555:573" ph="/**...*/" />
+            <marker date="1541478632144" expanded="false" signature="657:668" ph=" { " />
+            <marker date="1541478632144" expanded="false" signature="708:714" ph=" }" />
+            <marker date="1541478632144" expanded="true" signature="720:738" ph="/**...*/" />
+            <marker date="1541478632144" expanded="true" signature="840:909" ph="{...}" />
+            <marker date="1541478632144" expanded="true" signature="915:933" ph="/**...*/" />
+            <marker date="1541478632144" expanded="true" signature="1034:1099" ph="{...}" />
+            <marker date="1541478632144" expanded="true" signature="1202:1351" ph="{...}" />
+            <marker date="1541478632144" expanded="true" signature="1469:2485" ph="{...}" />
+            <marker date="1541478632144" expanded="true" signature="2642:2799" ph="{...}" />
+            <marker date="1541478632144" expanded="true" signature="2868:3049" ph="{...}" />
+            <marker date="1541478632144" expanded="true" signature="3144:3326" ph="{...}" />
+            <marker date="1541478632144" expanded="true" signature="3421:3602" ph="{...}" />
+            <marker date="1541478632144" expanded="true" signature="3665:3878" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ideaLibSources/opencsv-4.3.2-sources.jar!/com/opencsv/CSVWriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3281">
+          <caret line="198" column="54" lean-forward="true" selection-start-line="198" selection-start-column="54" selection-end-line="198" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Relation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-80">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Attribut.java">
+    <entry file="file://$PROJECT_DIR$/src/model/Method.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/model/Parser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="9" lean-forward="true" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2192#2193#0" expanded="true" />
+            <element signature="e#2231#2232#0" expanded="true" />
+            <element signature="e#5430#5438#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/metriques/Metriques.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="23" column="39" lean-forward="false" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2651#2652#0" expanded="true" />
@@ -1018,8 +1135,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Classe.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1070">
-          <caret line="93" column="0" lean-forward="true" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#2921#2922#0" expanded="true" />
             <element signature="e#2963#2964#0" expanded="true" />
@@ -1035,76 +1152,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/metriques/CsvGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="46" column="25" lean-forward="true" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Ligue.ucd">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="1" lean-forward="false" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/Ui.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="569">
-          <caret line="273" column="43" lean-forward="true" selection-start-line="273" selection-start-column="43" selection-end-line="273" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#addElementMetric#0;class#Ui#0" expanded="false" />
-            <element signature="method#printClasses#0;class#Ui#0" expanded="false" />
-            <element signature="method#setJListSize#0;class#Ui#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Method.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="43" column="21" lean-forward="true" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Parser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="176" column="38" lean-forward="false" selection-start-line="176" selection-start-column="32" selection-end-line="176" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2192#2193#0" expanded="true" />
-            <element signature="e#2231#2232#0" expanded="true" />
-            <element signature="e#5364#5374#0" expanded="true" />
-            <element signature="e#5430#5438#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Test/Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="722">
-          <caret line="94" column="5" lean-forward="true" selection-start-line="94" selection-start-column="5" selection-end-line="94" selection-end-column="5" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#testLigueAllClassesAreDoubled#0;class#Test#0" expanded="false" />
@@ -1114,6 +1165,45 @@
             <element signature="method#testLigueClassesWithSameOperationsSameAttributsType#0;class#Test#0" expanded="false" />
             <element signature="docComment;method#metricTesting#0;class#Test#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/metriques/CsvGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/Ui.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#addElementMetric#0;class#Ui#0" expanded="false" />
+            <element signature="method#printClasses#0;class#Ui#0" expanded="false" />
+            <element signature="method#setJListSize#0;class#Ui#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Attribut.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1177,6 +1267,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
