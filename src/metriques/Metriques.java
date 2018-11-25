@@ -1,12 +1,11 @@
 package metriques;
 
 /**
- * Created by Eduard Voiculescu and Sami Steenhaut on 4 november 2018
+ * Created by Eduard Voiculescu on 4 november 2018
  */
 
 import model.Attribut;
 import model.Classe;
-import model.Parser;
 import model.Method;
 
 import java.util.ArrayList;

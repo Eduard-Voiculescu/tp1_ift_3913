@@ -1,13 +1,10 @@
 package model;
 
 /**
- * Created by Eduard Voiculescu and Sami Steenhaut on 4 october 2018
+ * Created by Eduard Voiculescu on 4 october 2018
  */
 
-import javax.swing.*;
 import java.util.ArrayList;
-import java.util.FormatFlagsConversionMismatchException;
-import java.util.Optional;
 
 public class Method {
 

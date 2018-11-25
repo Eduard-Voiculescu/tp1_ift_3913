@@ -1,14 +1,13 @@
 package model;
 
 /**
- * Created by Eduard Voiculescu and Sami Steenhaut on 4 october 2018
+ * Created by Eduard Voiculescu on 4 october 2018
  */
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * PLEASE NOTE: IF A .ucd FILE AND PROVIDED AND ONE ERROR OCCURS, WE WILL SIMPLY PRINT OUT THE ENTIRE
